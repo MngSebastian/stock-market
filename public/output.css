@@ -600,6 +600,10 @@ video {
   width: 100vw;
 }
 
+.border-2 {
+  border-width: 2px;
+}
+
 .bg-red-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
