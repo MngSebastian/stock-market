@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 // import { fetchCompanyProfile } from "../api";
+import Header from "./Header";
 
 function Dashboard() {
   const [data, setData] = useState({});
@@ -32,7 +33,6 @@ function Dashboard() {
 
         axios.get(`https://finnhub.io/api/v1/company-news`, {
           params: {
-            // make symbol dinamic
             symbol: companySymbol,
             // use todays date later
             from: "2023-08-01",
@@ -56,26 +56,21 @@ function Dashboard() {
     }
   };
   return (
-    <div>
-      <button className="border-2" onClick={fetchCompanyData}>
-        Fetch Company Data
-      </button>
-      {console.log("data", data)}
-      {/* {console.log("compdata", companyEarningsResponse[0])} */}
-
-      <div>
-        {data.quote ? (
-          <div>
-            <p>Price: {data.quote.c}</p>
-            <p>Change since previous closing price: {data.quote.d}</p>
-            <p>Lowest Price of the day: {data.quote.l}</p>
-            <p>Highest Priceof the day: {data.quote.h}</p>
-            <p>Opening Price of the day: {data.quote.o}</p>
-            <p>Price: {data.quote.c}</p>
-            <p>Previous close Price: {data.quote.pc}</p>
-            <p>Percent change: {data.quote.dp}%</p>
+    <div className="flex flex-col h-full w-full">
+      <Header />
+      {console.log(data, data)}
+      <div className="flex bg-red-400 w-full h-full">
+        <div className="bg-violet-500 w-4/6 h-full">
+          <div className="bg-red-500 h-4/6">for chart</div>
+          <p>news and similar companies cards</p>
+        </div>
+        <div className="bg-blue-500 w-2/6 h-full">
+          <div className="bg-green-500 h-1/6 p-2">
+            <p>Ticker</p>
           </div>
-        ) : null}
+          <div className="bg-cyan-500 h-5/6">company info profile</div>
+        </div>
+        {/* <button onClick={fetchCompanyData}>fetch comp data</button> */}
       </div>
     </div>
   );

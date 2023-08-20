@@ -4,7 +4,11 @@ module.exports = {
   mode: "jit",
 
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#0C1C2C",
+      },
+    },
   },
   plugins: [],
 };
