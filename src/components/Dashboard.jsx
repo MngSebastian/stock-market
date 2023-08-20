@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 // import { fetchCompanyProfile } from "../api";
 import Header from "./Header";
-
+import CompanyHeader from "./CompanyHeader";
 function Dashboard() {
   const [data, setData] = useState({});
   const [companySymbol, setCompanySymbol] = useState("aapl");
@@ -59,14 +59,14 @@ function Dashboard() {
     <div className="flex flex-col h-full w-full">
       <Header />
       {console.log(data, data)}
-      <div className="flex bg-red-400 w-full h-full">
+      <div className="flex bg-resd-400 w-full h-full">
         <div className="bg-violet-500 w-4/6 h-full">
           <div className="bg-red-500 h-4/6">for chart</div>
           <p>news and similar companies cards</p>
         </div>
-        <div className="bg-blue-500 w-2/6 h-full">
-          <div className="bg-green-500 h-1/6 p-2">
-            <p>Ticker</p>
+        <div className="bg-bslue-500 w-2/6 h-full">
+          <div className="bg-gresen-500 h-1/6 p-2">
+            <CompanyHeader />
           </div>
           <div className="bg-cyan-500 h-5/6">company info profile</div>
         </div>
