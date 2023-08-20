@@ -3,6 +3,8 @@ import axios from "axios";
 // import { fetchCompanyProfile } from "../api";
 import Header from "./Header";
 import CompanyHeader from "./CompanyHeader";
+import CompanyProfile from "./CompanyProfile";
+
 function Dashboard() {
   const [data, setData] = useState({});
   const [companySymbol, setCompanySymbol] = useState("aapl");
@@ -12,7 +14,7 @@ function Dashboard() {
     try {
       const [
         profileResponse,
-        quoteResponse,
+        // quoteResponse,
         recommendationResponse,
         socialSentimentResponse,
         companyNewsResponse,
@@ -21,9 +23,9 @@ function Dashboard() {
         axios.get(
           `https://finnhub.io/api/v1/stock/profile2?symbol=${companySymbol}&token=${apiKey}`
         ),
-        axios.get(`https://finnhub.io/api/v1/quote`, {
-          params: { symbol: companySymbol, token: apiKey },
-        }),
+        // axios.get(`https://finnhub.io/api/v1/quote`, {
+        //   params: { symbol: companySymbol, token: apiKey },
+        // }),
         axios.get(
           `https://finnhub.io/api/v1/stock/recommendation?symbol=${companySymbol}&token=${apiKey}`
         ),
@@ -41,10 +43,9 @@ function Dashboard() {
           },
         }),
       ]);
-
       const companyData = {
         profile: profileResponse.data,
-        quote: quoteResponse.data,
+        // quote: quoteResponse.data,
         recommendation: recommendationResponse.data,
         socialSentiment: socialSentimentResponse,
         companyNews: companyNewsResponse,
@@ -55,23 +56,29 @@ function Dashboard() {
       console.error("Error fetching data:", error);
     }
   };
+
+  useEffect(() => {
+    fetchCompanyData();
+  }, []);
   return (
     <div className="flex flex-col h-full w-full">
       <Header />
       {console.log(data, data)}
-      <div className="flex bg-resd-400 w-full h-full">
+      <div className="flex w-full h-full">
         <div className="bg-violet-500 w-4/6 h-full">
           <div className="bg-red-500 h-4/6">for chart</div>
           <p>news and similar companies cards</p>
         </div>
-        <div className="bg-bslue-500 w-2/6 h-full">
-          <div className="bg-gresen-500 h-1/6 p-2">
-            <CompanyHeader />
+        <div className=" flex flex-col justify-between bg-blse-500 w-2/6 h-full">
+          <div className="shadow-lg shadow-gray-200 rounded-lg h-1/6 p-2 mr-6">
+            <CompanyHeader companySymbol={companySymbol} apiKey={apiKey} />
           </div>
-          <div className="bg-cyan-500 h-5/6">company info profile</div>
+          <div className="shadow-lg shadow-gray-200 rounded-lg h-[80%] rounded-lg mr-6">
+            <CompanyProfile />
+          </div>
         </div>
-        {/* <button onClick={fetchCompanyData}>fetch comp data</button> */}
       </div>
+      <button onClick={fetchCompanyData}>fetch comp data</button>
     </div>
   );
 }
