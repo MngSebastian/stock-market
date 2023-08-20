@@ -7,9 +7,8 @@ import CompanyProfile from "./CompanyProfile";
 
 function Dashboard() {
   const [data, setData] = useState({});
-  const [companySymbol, setCompanySymbol] = useState("aapl");
+  const [companySymbol, setCompanySymbol] = useState("wmt");
   const apiKey = process.env.REACT_APP_FINNHUB_API_KEY;
-
   const fetchCompanyData = async () => {
     try {
       const [
@@ -56,13 +55,13 @@ function Dashboard() {
       console.error("Error fetching data:", error);
     }
   };
-
   useEffect(() => {
     fetchCompanyData();
   }, []);
+
   return (
     <div className="flex flex-col h-full w-full">
-      <Header />
+      <Header logo={data.profile ? data.profile.logo : null} />
       {console.log(data, data)}
       <div className="flex w-full h-full">
         <div className="bg-violet-500 w-4/6 h-full">

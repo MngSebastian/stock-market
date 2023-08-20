@@ -29,7 +29,6 @@ function CompanyHeader({ companySymbol, apiKey }) {
   if (isLoading) {
     return <p></p>; // Display loading indicator while fetching data
   }
-  console.log("company header data", data.quote);
   return (
     <div className="flex h-full">
       <div className="bg-red-blue w-3/6">

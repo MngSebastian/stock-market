@@ -1,6 +1,6 @@
 import React from "react";
 
-function Header() {
+function Header({ logo }) {
   return (
     <div className="flex justify-between w-full h-1/6">
       <div className="flex flex-col justify-center w-3/6 p-6">
@@ -11,7 +11,9 @@ function Header() {
         />
       </div>
       <div className="flex justify-end items-center bg-yelslow-500 w-3/6 pr-6">
-        <div className=" bg-red-500 w-[100px] h-[100px]">logo</div>
+        <div className="w-[100px] h-[100px]">
+          <img className="w-full h-full" src={logo} />
+        </div>
       </div>
     </div>
   );
