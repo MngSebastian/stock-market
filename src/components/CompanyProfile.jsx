@@ -1,30 +1,32 @@
 import React from "react";
+function CompanyProfile({ profile }) {
+  // const [data, setData] = useState({});
 
-function CompanyProfile() {
   return (
-    <div className=" h-full p-6">
-      <div className="flex  justify-between  border-b-2 mb-4">
-        <h4>Name:</h4>
-        <p>Apple Inc</p>
+    <div className="flex flex-col justify-evsenly h-full p-6">
+      <div className="flex  justify-between  border-b-2 mb-6">
+        <h4 className="text-lg tracking-widest">Name:</h4>
+
+        <p className="text-lg">{profile ? profile.name : null}</p>
       </div>
-      <div className="flex  justify-between  border-b-2 mb-4">
-        <h4>Exchange:</h4>
-        <p>NASDAQ NMS - GLOBAL MARKET</p>
+      <div className="flex  justify-between  border-b-2 mb-6">
+        <h4 className="text-lg tracking-widest">Exchange:</h4>
+        <p>{profile ? profile.exchange : null}</p>
       </div>
-      <div className="flex  justify-between  border-b-2 mb-4">
-        <h4>Country:</h4>
-        <p>US</p>
+      <div className="flex  justify-between  border-b-2 mb-6">
+        <h4 className="text-lg tracking-widest">Country:</h4>
+        <p>{profile ? profile.country : null}</p>
       </div>
-      <div className="flex  justify-between  border-b-2 mb-4">
-        <h4>Currency:</h4>
-        <p>USD</p>
+      <div className="flex  justify-between  border-b-2 mb-6">
+        <h4 className="text-lg tracking-widest">Currency:</h4>
+        <p>{profile ? profile.currency : null}</p>
       </div>
-      <div className="flex  justify-between  border-b-2 mb-4">
-        <h4>Industry:</h4>
-        <p>Technology</p>
+      <div className="flex  justify-between  border-b-2 mb-6">
+        <h4 className="text-lg tracking-widest">Industry:</h4>
+        <p>{profile ? profile.finnhubIndustry : null}</p>
       </div>
-      <div className="flex  justify-between  border-b-2 mb-4">
-        <h4>Market Capitalization:</h4>
+      <div className="flex  justify-between  border-b-2 mb-6">
+        <h4 className="text-lg tracking-widest">Market Capitalization:</h4>
         {/* remember to conver values */}
         <p>2.7T</p>
       </div>

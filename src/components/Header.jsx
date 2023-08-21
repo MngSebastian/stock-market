@@ -11,8 +11,8 @@ function Header({ logo }) {
         />
       </div>
       <div className="flex justify-end items-center bg-yelslow-500 w-3/6 pr-6">
-        <div className="w-[100px] h-[100px]">
-          <img className="w-full h-full" src={logo} />
+        <div className=" w-[100px] h-[100px]">
+          <img className="w-full h-full" src={logo} alt="Company logo" />
         </div>
       </div>
     </div>
