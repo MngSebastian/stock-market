@@ -2,7 +2,7 @@ import React from "react";
 
 function Header({ logo }) {
   return (
-    <div className="flex justify-between w-full h-1/6">
+    <div className="flex justify-between w-full mb-6 h-1/6">
       <div className="flex flex-col justify-center w-3/6 p-6">
         <p className="text-4xl pb-4">Apple Inc</p>
         <input

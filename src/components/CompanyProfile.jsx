@@ -28,7 +28,7 @@ function CompanyProfile({ profile }) {
       <div className="flex  justify-between  border-b-2 mb-6">
         <h4 className="text-lg tracking-widest">Market Capitalization:</h4>
         {/* remember to conver values */}
-        <p>2.7T</p>
+        <p>{profile ? profile.marketCapitalization : null}</p>
       </div>
     </div>
   );
