@@ -41,7 +41,7 @@ function Chart() {
           );
         })}
       </ul>
-      <ResponsiveContainer>
+      <ResponsiveContainer width="100%" height="90%">
         <AreaChart data={formatData(data)}>
           <defs>
             <linearGradient id="chartColor" x1="0" y1="0" x2="0" y2="1">

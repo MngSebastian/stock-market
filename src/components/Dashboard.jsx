@@ -34,19 +34,19 @@ function Dashboard() {
       <Header logo={data.profile ? data.profile.logo : null} />
       {console.log(data, data)}
       <div className="flex w-full h-full">
-        <div className="w-4/6 h-full mr-6">
-          <div className="h-4/6">
+        <div className="w-4/6 h-full mr-6 ml-6">
+          <div className=" shadow-lg h-4/6">
             <Chart />
           </div>
           {/* <div className="flex border-2 justify-center  h-2/6 pt-6">
             <SimilarCompanies />
           </div> */}
         </div>
-        <div className=" flex flex-col justify-between bg-blse-500 w-2/6 h-full">
-          <div className="shadow-lg shadow-gray-200 rounded-lg h-1/6 p-2 mr-6">
+        <div className=" flex flex-col justify-between bg-blse-500 w-2/6 h-full mr-6">
+          <div className="shadow-lg shadow-gray-200 rounded-lg h-1/6 p-2">
             <CompanyHeader companySymbol={companySymbol} apiKey={apiKey} />
           </div>
-          <div className="shadow-lg shadow-gray-200 rounded-lg h-[80%] mr-6">
+          <div className="shadow-lg shadow-gray-200 rounded-lg h-[80%]">
             <CompanyProfile profile={data.profile} />
           </div>
         </div>
