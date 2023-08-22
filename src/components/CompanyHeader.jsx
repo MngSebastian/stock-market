@@ -22,7 +22,7 @@ function CompanyHeader({ companySymbol, apiKey }) {
 
   useEffect(() => {
     fetchQuoteData();
-  }, []);
+  }, [companySymbol]);
 
   // if (isLoading) {
   //   return <p></p>; // Display loading indicator while fetching data

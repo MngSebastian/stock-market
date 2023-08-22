@@ -7,7 +7,7 @@ import SimilarCompanies from "./SimilarCompanies";
 import Chart from "./Chart";
 function Dashboard() {
   const [data, setData] = useState({});
-  const [companySymbol, setCompanySymbol] = useState("intc");
+  const [companySymbol, setCompanySymbol] = useState("");
   // const [isLoading, setIsLoading] = useState(true);
   const apiKey = process.env.REACT_APP_FINNHUB_API_KEY;
   const fetchCompanyData = async () => {
@@ -27,11 +27,15 @@ function Dashboard() {
   };
   useEffect(() => {
     fetchCompanyData();
-  }, []);
+  }, [companySymbol]);
 
   return (
     <div className="flex flex-col h-full w-full">
-      <Header data={data.profile ? data.profile : null} />
+      <Header
+        setCompanySymbol={setCompanySymbol}
+        data={data.profile ? data.profile : null}
+      />
+
       {console.log(data, data)}
       <div className="flex w-full h-full">
         <div className="w-4/6 h-full mr-6 ml-6">
