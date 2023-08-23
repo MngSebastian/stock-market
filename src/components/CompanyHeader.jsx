@@ -31,7 +31,7 @@ function CompanyHeader({ companySymbol, apiKey }) {
     <div className="flex xs:bg-red-500  h-full">
       <div className=" w-3/6">
         <p className="text-xl pb-2">{companySymbol.toUpperCase()}</p>
-        <p className="text-4xl pb-2 pl-20">
+        <p className="text-2xl pb-2 pl-20">
           {console.log("header data", data.quote ? data.quote.c : null)}$
           {data.quote ? data.quote.c : null}
         </p>

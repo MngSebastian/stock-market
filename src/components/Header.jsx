@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { IoMdSearch } from "react-icons/io";
 function Header({ data, setCompanySymbol }) {
   const [inputValue, setInputValue] = useState("");
 
@@ -15,8 +15,9 @@ function Header({ data, setCompanySymbol }) {
   return (
     <div className="flex justify-between w-full mb-6 h-1/6">
       <div className="flex flex-col justify-center w-3/6 p-6">
-        <p className="text-4xl pb-4">{data ? data.name : null}</p>
-        <form onSubmit={handleSubmit}>
+        <p className="text-4xl  pb-4">{data ? data.name : null}</p>
+        {/* <div className="flex  items-center bg-red-500 height-[60px]"> */}
+        <form onSubmit={handleSubmit} className="flex items-center">
           <input
             type="text"
             placeholder="Enter company symbol"
@@ -26,11 +27,12 @@ function Header({ data, setCompanySymbol }) {
           />
           <button
             type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded-lg mt-2"
+            className=" bg-blue-500 text-white px-4 py-2 rounded-lg"
           >
-            Search
+            <IoMdSearch size={18} className="mr-0" />
           </button>
         </form>
+        {/* </div> */}
       </div>
       <div className="flex justify-end items-center bg-yelslow-500 w-3/6 pr-6">
         <div className=" w-[100px] h-[100px]">

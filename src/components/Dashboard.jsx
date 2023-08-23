@@ -7,7 +7,7 @@ import SimilarCompanies from "./SimilarCompanies";
 import Chart from "./Chart";
 function Dashboard() {
   const [data, setData] = useState({});
-  const [companySymbol, setCompanySymbol] = useState("");
+  const [companySymbol, setCompanySymbol] = useState("aapl");
   // const [isLoading, setIsLoading] = useState(true);
   const apiKey = process.env.REACT_APP_FINNHUB_API_KEY;
   const fetchCompanyData = async () => {
