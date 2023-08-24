@@ -21,11 +21,11 @@ function Header({ data, setCompanySymbol }) {
     <div className="flex w-full mb-6 h-[175px]">
       <div className="flex flex-col justify-center w-3/6 pl-6">
         <p className="text-4xl  pb-4">{data ? data.name : null}</p>
-        <div className="flex   justify-evenly items-center border-2 w-[350px] bg-transparent h-[45px] rounded-lg">
+        <div className="flex   justify-evenly items-center border-2 w-[350px] bg-transparent h-[34px] rounded-lg">
           <input
             type="text"
             placeholder="Enter company symbol"
-            className="w-full h-[40px] outline-none text-white bg-transparent rounded-lg pl-2 text-sm"
+            className="w-full h-[34px] bg-red-500 outline-none text-white bg-transparent rounded-lg pl-2 text-sm"
             value={inputValue}
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
@@ -40,9 +40,9 @@ function Header({ data, setCompanySymbol }) {
           )}
           <button
             type="submit"
-            className=" bg-blue-500 px-2 h-[35px] rounded-lg mr-2"
+            className=" bg-blue-500 px-2 h-[25px] rounded-lg mr-1"
           >
-            <IoMdSearch className="mr-0" />
+            <IoMdSearch size={18} />
           </button>
         </div>
       </div>
