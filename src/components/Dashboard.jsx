@@ -37,7 +37,7 @@ function Dashboard() {
       />
 
       {console.log(data, data)}
-      <div className="flex w-full h-full">
+      <div className="flex w-full  mb-4 h-full">
         <div className="w-4/6 h-full mr-6 ml-6">
           <div className=" shadow-lg h-4/6">
             <Chart />
