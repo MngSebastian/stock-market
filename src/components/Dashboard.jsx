@@ -36,11 +36,10 @@ function Dashboard() {
         data={data.profile ? data.profile : null}
       />
 
-      {console.log(data, data)}
       <div className="flex w-full  mb-4 h-full">
         <div className="w-4/6 h-full mr-6 ml-6">
           <div className=" shadow-lg h-4/6">
-            <Chart />
+            <Chart apiKey={apiKey} companySymbol={companySymbol} />
           </div>
           {/* <div className="flex border-2 justify-center  h-2/6 pt-6">
             <SimilarCompanies />

@@ -1,6 +1,8 @@
 import React from "react";
 function CompanyProfile({ profile }) {
-  // const [data, setData] = useState({});
+  const convertMillionToBillion = (number) => {
+    return (number / 1000).toFixed(2);
+  };
 
   return (
     <div className="flex flex-col justify-evsenly h-full p-6">
@@ -28,7 +30,12 @@ function CompanyProfile({ profile }) {
       <div className="flex  justify-between  border-b-2 mb-6">
         <h4 className="text-lg tracking-widest">Market Capitalization:</h4>
         {/* remember to conver values */}
-        <p>{profile ? profile.marketCapitalization : null}</p>
+        <p>
+          {profile
+            ? convertMillionToBillion(profile.marketCapitalization)
+            : null}
+          B
+        </p>
       </div>
     </div>
   );

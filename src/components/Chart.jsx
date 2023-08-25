@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { mockHistoricalData } from "../constants/mock";
 import { convertUnixTimestampToDate } from "../helpers/date-helper";
 import {
@@ -11,9 +11,12 @@ import {
 } from "recharts";
 import { chartConfig } from "../constants/chart-config";
 import ChartFilter from "./ChartFilter";
+import axios from "axios";
 
-function Chart() {
-  const [data, setDate] = useState(mockHistoricalData);
+function Chart({ apiKey, companySymbol }) {
+  const [data, setData] = useState(mockHistoricalData);
+  const [dataX, setDataX] = useState([]);
+
   const [filter, setFilter] = useState("1W");
 
   const formatData = () => {
@@ -24,6 +27,31 @@ function Chart() {
       };
     });
   };
+
+  const fetchHistoricalData = async () => {
+    try {
+      const historicalDataResponse = await axios.get(
+        `https://finnhub.io/api/v1/stock/candle?symbol=${companySymbol}&resolution=1&from=1679476980&to=1679649780&token=${apiKey}`,
+        {
+          params: { symbol: companySymbol, token: apiKey },
+        }
+      );
+      const companyData = {
+        historicalData: historicalDataResponse.data,
+      };
+      setDataX(companyData);
+      // setIsLoading(false); // Data has been fetched, set loading to false
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      // setIsLoading(false); // Data has been fetched, set loading to false
+    }
+  };
+
+  useEffect(() => {
+    fetchHistoricalData();
+  }, [companySymbol]);
+
+  console.log("historical data", dataX);
   return (
     <div className="h-full">
       <ul className="flex justify-end">

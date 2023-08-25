@@ -17,6 +17,12 @@ function Header({ data, setCompanySymbol }) {
       setInputValue("");
     }
   };
+
+  const handleSearch = () => {
+    setCompanySymbol(inputValue);
+    setInputValue("");
+  };
+
   return (
     <div className="flex w-full mb-6 h-[175px]">
       <div className="flex flex-col justify-center w-3/6 pl-6">
@@ -33,14 +39,15 @@ function Header({ data, setCompanySymbol }) {
           {inputValue && (
             <button
               onClick={clear}
-              className="bg-slate-500 rounded-full  mr-2 "
+              className="  bg-transparent hover:bg-slate-700 rounded-full  mr-2 "
             >
-              <IoMdClose size={18} />
+              <IoMdClose size={16} />
             </button>
           )}
           <button
             type="submit"
             className=" bg-blue-500 px-2 h-[25px] rounded-lg mr-1"
+            onClick={handleSearch}
           >
             <IoMdSearch size={18} />
           </button>
