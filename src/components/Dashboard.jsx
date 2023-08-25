@@ -5,6 +5,9 @@ import CompanyHeader from "./CompanyHeader";
 import CompanyProfile from "./CompanyProfile";
 import SimilarCompanies from "./SimilarCompanies";
 import Chart from "./Chart";
+
+import { fetchHistoricalData } from "../utils/api";
+
 function Dashboard() {
   const [data, setData] = useState({});
   const [companySymbol, setCompanySymbol] = useState("aapl");
