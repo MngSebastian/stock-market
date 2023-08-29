@@ -1,24 +1,11 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { fetchQuoteData } from "../utils/api";
 
-function CompanyHeader({ companySymbol, apiKey }) {
+function CompanyHeader({ companySymbol }) {
   const [data, setData] = useState({});
-  const fetchQuoteData = async () => {
-    try {
-      const quoteResponse = await axios.get(`https://finnhub.io/api/v1/quote`, {
-        params: { symbol: companySymbol, token: apiKey },
-      });
-      const companyData = {
-        quote: quoteResponse.data,
-      };
-      setData(companyData);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
 
   useEffect(() => {
-    fetchQuoteData();
+    fetchQuoteData(companySymbol, setData);
   }, [companySymbol]);
 
   return (
@@ -42,7 +29,6 @@ function CompanyHeader({ companySymbol, apiKey }) {
         </p>
       </div>
       <div className="flex flex-col w-3/6 pl-20 pt-9">
-        {/* <p className="border-b-4 border-green-500 w-2/6">$122.24</p> */}
         <h1 className="text-xl pb-2">Day's Range</h1>
         <p className="text-lg font-medium tracking-wider w-3/6">
           <span className="bg-red-500 rounded-lg p-1 mr-4">

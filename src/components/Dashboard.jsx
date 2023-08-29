@@ -28,7 +28,7 @@ function Dashboard() {
         </div>
         <div className=" flex flex-col justify-between bg-blse-500 w-2/6 h-full mr-6">
           <div className="shadow-lg shadow-gray-200 rounded-lg h-1/6 p-2">
-            <CompanyHeader companySymbol={companySymbol} apiKey={apiKey} />
+            <CompanyHeader companySymbol={companySymbol} />
           </div>
           <div className="shadow-lg shadow-gray-200 rounded-lg h-[80%]">
             <CompanyProfile profile={data.profile} />

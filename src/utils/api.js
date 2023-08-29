@@ -23,6 +23,20 @@ export const fetchCompanyData = async (companySymbol, setData) => {
   }
 };
 
+export const fetchQuoteData = async (companySymbol, setData) => {
+  try {
+    const quoteResponse = await axios.get(`https://finnhub.io/api/v1/quote`, {
+      params: { symbol: companySymbol, token: apiKey },
+    });
+    const companyData = {
+      quote: quoteResponse.data,
+    };
+    setData(companyData);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
+
 export const searchSymbol = async (query) => {
   const url = `https://finnhub.io/api/v1/search?q=${query}&token=${apiKey}`;
   const response = await fetch(url);
