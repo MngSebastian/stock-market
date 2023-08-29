@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoMdSearch, IoMdClose } from "react-icons/io";
 import { searchSymbol } from "../utils/api";
 import SearchResults from "./SearchResults";
@@ -8,18 +8,20 @@ function Header({ data, setCompanySymbol }) {
   const [inputValue, setInputValue] = useState("");
   const [bestMatches, setBestMatches] = useState([]);
 
-  // const updateBestMatches = async () => {
-  //   try {
-  //     if (inputValue) {
-  //       const searchResults = await searchSymbol(inputValue);
-  //       const result = searchResults.result;
-  //       setBestMatches(result);
-  //     }
-  //   } catch (error) {
-  //     setBestMatches([]);
-  //     console.log(error);
-  //   }
-  // };
+  const updateBestMatches = async () => {
+    try {
+      if (inputValue) {
+        const searchResults = await searchSymbol(inputValue);
+        console.log("searchresults", searchResults);
+        const result = searchResults.result;
+        setBestMatches(result);
+        console.log("searchsymbol", searchResults);
+      }
+    } catch (error) {
+      setBestMatches([]);
+      console.log(error);
+    }
+  };
 
   const clear = () => {
     setInputValue("");
@@ -38,6 +40,9 @@ function Header({ data, setCompanySymbol }) {
     setInputValue("");
   };
 
+  useEffect(() => {
+    updateBestMatches();
+  }, [inputValue]);
   return (
     <div className="flex w-full mb-6 h-[175px]">
       <div className="flex flex-col justify-center w-3/6 pl-6">
@@ -48,10 +53,13 @@ function Header({ data, setCompanySymbol }) {
             placeholder="Enter company symbol"
             className="w-full h-[34px] bg-red-500 outline-none text-white bg-transparent rounded-lg pl-2 text-sm"
             value={inputValue}
-            onChange={(event) => {
-              setInputValue(event.target.value);
+            onChange={(event) => setInputValue(event.target.value)}
+            onKeyUp={(event) => {
+              if (event.key === "Enter" && inputValue.length > 0) {
+                setCompanySymbol(inputValue);
+                setInputValue("");
+              }
             }}
-            onKeyUp={handleKeyUp}
           />
           {inputValue && (
             <button
@@ -70,6 +78,8 @@ function Header({ data, setCompanySymbol }) {
           </button>
           {inputValue && bestMatches.length > 0 ? (
             <SearchResults
+              setInputValue={setInputValue}
+              setBestMatches={setBestMatches}
               setCompanySymbol={setCompanySymbol}
               results={bestMatches}
             />

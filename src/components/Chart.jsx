@@ -22,7 +22,6 @@ function Chart({ apiKey, companySymbol }) {
   const [filter, setFilter] = useState("1W");
 
   const formatData = (data) => {
-    console.log("data", data);
     return data.c.map((item, index) => {
       return {
         value: item.toFixed(2),
