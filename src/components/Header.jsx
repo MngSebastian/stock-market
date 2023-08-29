@@ -38,7 +38,7 @@ function Header({ data, setCompanySymbol }) {
             onChange={(event) => setInputValue(event.target.value)}
             onKeyUp={(event) => {
               if (event.key === "Enter" && inputValue.length > 0) {
-                setCompanySymbol(inputValue);
+                setCompanySymbol(inputValue.toUpperCase());
                 setInputValue("");
               }
             }}

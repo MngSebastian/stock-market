@@ -1,9 +1,5 @@
 import React from "react";
-// i want based matches to update in real time
-// as the input changes also so that i can give the 'enter' feature back to
-// pulling data for a specific ticker
 
-// useEffect that runs everytime the input changes(input==dependency) that calls update matches,
 function SearchResults({
   results,
   setCompanySymbol,

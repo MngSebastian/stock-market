@@ -3,17 +3,17 @@ function CompanyProfile({ profile }) {
   const convertMillionToBillion = (number) => {
     return (number / 1000).toFixed(2);
   };
-
   return (
     <div className="flex flex-col justify-evsenly h-full p-6">
       <div className="flex  justify-between  border-b-2 mb-6">
-        <h4 className="text-lg tracking-widest">Name:</h4>
+        <p>{profile ? profile.marketCapitalization : null}</p>
 
+        <h4 className="text-lg tracking-widest">Name:</h4>
         <p className="text-lg">{profile ? profile.name : null}</p>
       </div>
       <div className="flex  justify-between  border-b-2 mb-6">
         <h4 className="text-lg tracking-widest">Exchange:</h4>
-        {/* <p>{profile ? profile.exchange : null}</p> */}
+        <p>{profile ? profile.exchange : null}</p>
       </div>
       <div className="flex  justify-between  border-b-2 mb-6">
         <h4 className="text-lg tracking-widest">Country:</h4>
@@ -29,12 +29,10 @@ function CompanyProfile({ profile }) {
       </div>
       <div className="flex  justify-between  border-b-2 mb-6">
         <h4 className="text-lg tracking-widest">Market Capitalization:</h4>
-        {/* remember to conver values */}
         <p>
           {profile
             ? convertMillionToBillion(profile.marketCapitalization)
             : null}
-          B
         </p>
       </div>
     </div>

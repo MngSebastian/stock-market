@@ -7,7 +7,7 @@ import { fetchCompanyData, apiKey } from "../utils/api";
 
 function Dashboard() {
   const [data, setData] = useState({});
-  const [companySymbol, setCompanySymbol] = useState("aapl");
+  const [companySymbol, setCompanySymbol] = useState("AAPL");
 
   useEffect(() => {
     fetchCompanyData(companySymbol, setData);
