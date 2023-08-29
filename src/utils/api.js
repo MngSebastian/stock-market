@@ -1,4 +1,5 @@
 import axios from "axios";
+
 export const apiKey = process.env.REACT_APP_FINNHUB_API_KEY;
 /**
  * Searches best stock matches based on a user's query
