@@ -1,7 +1,25 @@
 import React, { useState } from "react";
 import { IoMdSearch, IoMdClose } from "react-icons/io";
+import { searchSymbol } from "../utils/api";
+import SearchResults from "./SearchResults";
+
+// try to put handleKeyUp and handleSearch in a single function
 function Header({ data, setCompanySymbol }) {
   const [inputValue, setInputValue] = useState("");
+  const [bestMatches, setBestMatches] = useState([]);
+
+  const updateBestMatches = async () => {
+    try {
+      if (inputValue) {
+        const searchResults = await searchSymbol(inputValue);
+        const result = searchResults.result;
+        setBestMatches(result);
+      }
+    } catch (error) {
+      setBestMatches([]);
+      console.log(error);
+    }
+  };
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -9,9 +27,10 @@ function Header({ data, setCompanySymbol }) {
 
   const clear = () => {
     setInputValue("");
+    setBestMatches([]);
   };
 
-  const handleKeyDown = (event) => {
+  const handleKeyUp = (event) => {
     if (event.key === "Enter") {
       setCompanySymbol(inputValue);
       setInputValue("");
@@ -34,7 +53,7 @@ function Header({ data, setCompanySymbol }) {
             className="w-full h-[34px] bg-red-500 outline-none text-white bg-transparent rounded-lg pl-2 text-sm"
             value={inputValue}
             onChange={handleInputChange}
-            onKeyDown={handleKeyDown}
+            onKeyUp={handleKeyUp}
           />
           {inputValue && (
             <button
@@ -51,6 +70,12 @@ function Header({ data, setCompanySymbol }) {
           >
             <IoMdSearch size={18} />
           </button>
+          {inputValue && bestMatches.length > 0 ? (
+            <SearchResults
+              setCompanySymbol={setCompanySymbol}
+              results={bestMatches}
+            />
+          ) : null}
         </div>
       </div>
       <div className="flex justify-end items-center bg-yelslow-500 w-3/6 pr-6">

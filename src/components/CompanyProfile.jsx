@@ -13,7 +13,7 @@ function CompanyProfile({ profile }) {
       </div>
       <div className="flex  justify-between  border-b-2 mb-6">
         <h4 className="text-lg tracking-widest">Exchange:</h4>
-        <p>{profile ? profile.exchange : null}</p>
+        {/* <p>{profile ? profile.exchange : null}</p> */}
       </div>
       <div className="flex  justify-between  border-b-2 mb-6">
         <h4 className="text-lg tracking-widest">Country:</h4>

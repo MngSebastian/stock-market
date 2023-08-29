@@ -60,29 +60,6 @@ function Chart({ apiKey, companySymbol }) {
     updateChartData();
   }, [companySymbol, filter]);
 
-  // const fetchHistoricalData = async () => {
-  //   try {
-  //     const historicalDataResponse = await axios.get(
-  //       `https://finnhub.io/api/v1/stock/candle?symbol=${companySymbol}&resolution=1&from=1679476980&to=1679649780&token=${apiKey}`,
-  //       {
-  //         params: { symbol: companySymbol, token: apiKey },
-  //       }
-  //     );
-  //     const companyData = {
-  //       historicalData: historicalDataResponse.data,
-  //     };
-  //     setDataX(companyData);
-  //     // setIsLoading(false); // Data has been fetched, set loading to false
-  //   } catch (error) {
-  //     console.error("Error fetching data:", error);
-  //     // setIsLoading(false); // Data has been fetched, set loading to false
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetchHistoricalData();
-  // }, [companySymbol]);
-
   return (
     <div className="h-full">
       <ul className="flex justify-end">
@@ -105,7 +82,11 @@ function Chart({ apiKey, companySymbol }) {
           <defs>
             <linearGradient id="chartColor" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="rgb(222,22,210)" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="rgb(190,12,150)" stopOpacity={0} />
+              <stop
+                offset="98%"
+                stopColor="rgb(190,12,150)"
+                stopOpacity={0.1}
+              />
             </linearGradient>
           </defs>
           <Area

@@ -3,7 +3,6 @@ import axios from "axios";
 
 function CompanyHeader({ companySymbol, apiKey }) {
   const [data, setData] = useState({});
-  // const [isLoading, setIsLoading] = useState(true);
   const fetchQuoteData = async () => {
     try {
       const quoteResponse = await axios.get(`https://finnhub.io/api/v1/quote`, {
@@ -13,10 +12,8 @@ function CompanyHeader({ companySymbol, apiKey }) {
         quote: quoteResponse.data,
       };
       setData(companyData);
-      // setIsLoading(false); // Data has been fetched, set loading to false
     } catch (error) {
       console.error("Error fetching data:", error);
-      // setIsLoading(false); // Data has been fetched, set loading to false
     }
   };
 
@@ -24,18 +21,17 @@ function CompanyHeader({ companySymbol, apiKey }) {
     fetchQuoteData();
   }, [companySymbol]);
 
-  // if (isLoading) {
-  //   return <p></p>; // Display loading indicator while fetching data
-  // }
   return (
-    <div className="flex xs:bg-red-500  h-full">
-      <div className=" w-3/6">
-        <p className="text-xl pb-2">{companySymbol.toUpperCase()}</p>
-        <p className="text-2xl pb-2 pl-20">
+    <div className="flex bg-gresen-500 w-6/6 h-full">
+      <div className="w-3/6">
+        <p className=" text-sm lg:text-xl pb-2">
+          {companySymbol.toUpperCase()}
+        </p>
+        <p className="text-sm lg:text-2xl pb-2 pl-20">
           ${data.quote ? data.quote.c : null}
         </p>
         <p
-          className={` text-lg pl-20 ${
+          className={`text-sm md:text-lg pl-20 ${
             (data.quote ? data.quote.d : null) >= 0
               ? "text-green-500"
               : "text-red-500"
@@ -45,14 +41,14 @@ function CompanyHeader({ companySymbol, apiKey }) {
           {data.quote ? data.quote.dp : null}%)
         </p>
       </div>
-      <div className="flex flex-col  bg-s-500 w-3/6 pl-20 pt-9">
+      <div className="flex flex-col w-3/6 pl-20 pt-9">
         {/* <p className="border-b-4 border-green-500 w-2/6">$122.24</p> */}
-        <h1 className="text-xl pb-4">Day's Range</h1>
+        <h1 className="text-xl pb-2">Day's Range</h1>
         <p className="text-lg font-medium tracking-wider w-3/6">
-          <span className="bg-red-500 rounded-lg p-2 mr-4">
+          <span className="bg-red-500 rounded-lg p-1 mr-4">
             ${parseFloat(data.quote ? data.quote.l : null).toFixed(2)}
           </span>
-          <span className=" bg-green-500 rounded-lg p-2">
+          <span className=" bg-green-500 rounded-lg p-1">
             ${parseFloat(data.quote ? data.quote.h : null).toFixed(2)}
           </span>
         </p>
