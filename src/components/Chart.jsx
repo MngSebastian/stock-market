@@ -22,6 +22,7 @@ function Chart({ apiKey, companySymbol }) {
   const [filter, setFilter] = useState("1W");
 
   const formatData = (data) => {
+    console.log("data", data);
     return data.c.map((item, index) => {
       return {
         value: item.toFixed(2),
@@ -83,7 +84,7 @@ function Chart({ apiKey, companySymbol }) {
             <linearGradient id="chartColor" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="rgb(222,22,210)" stopOpacity={0.8} />
               <stop
-                offset="98%"
+                offset="95%"
                 stopColor="rgb(190,12,150)"
                 stopOpacity={0.1}
               />

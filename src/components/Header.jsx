@@ -8,22 +8,18 @@ function Header({ data, setCompanySymbol }) {
   const [inputValue, setInputValue] = useState("");
   const [bestMatches, setBestMatches] = useState([]);
 
-  const updateBestMatches = async () => {
-    try {
-      if (inputValue) {
-        const searchResults = await searchSymbol(inputValue);
-        const result = searchResults.result;
-        setBestMatches(result);
-      }
-    } catch (error) {
-      setBestMatches([]);
-      console.log(error);
-    }
-  };
-
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-  };
+  // const updateBestMatches = async () => {
+  //   try {
+  //     if (inputValue) {
+  //       const searchResults = await searchSymbol(inputValue);
+  //       const result = searchResults.result;
+  //       setBestMatches(result);
+  //     }
+  //   } catch (error) {
+  //     setBestMatches([]);
+  //     console.log(error);
+  //   }
+  // };
 
   const clear = () => {
     setInputValue("");
@@ -31,7 +27,7 @@ function Header({ data, setCompanySymbol }) {
   };
 
   const handleKeyUp = (event) => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && inputValue.length > 0) {
       setCompanySymbol(inputValue);
       setInputValue("");
     }
@@ -52,7 +48,9 @@ function Header({ data, setCompanySymbol }) {
             placeholder="Enter company symbol"
             className="w-full h-[34px] bg-red-500 outline-none text-white bg-transparent rounded-lg pl-2 text-sm"
             value={inputValue}
-            onChange={handleInputChange}
+            onChange={(event) => {
+              setInputValue(event.target.value);
+            }}
             onKeyUp={handleKeyUp}
           />
           {inputValue && (
