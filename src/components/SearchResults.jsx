@@ -12,13 +12,13 @@ function SearchResults({
 }) {
   return (
     <ul
-      className={`absolute top-32 left-4 bg-primary border-2 custom-scrollbar custom-scrollbar-dark border-slate-500 w-[400px] z-40 rounded-md h-64 overflow-y-scroll`}
+      className={`absolute top-32 left-4 bg-primary border-2 custom-scrollbar border-slate-500 w-[400px] z-40 rounded-md h-64 overflow-y-scroll`}
     >
       {results.map((item) => {
         return (
           <li
             key={item.symbol}
-            className={`cursor-pointer p-4 m-2  hover:bg-pink-500 flex items-center hover:bg-blue-500 justify-between rounded-md transition duration-300`}
+            className={`cursor-pointer p-4 m-2  hover:bg-pink-500 flex items-center justify-between rounded-md transition duration-300`}
             onClick={() => {
               setCompanySymbol(item.symbol);
               setInputValue("");
