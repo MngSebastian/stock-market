@@ -1,30 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { fetchPeersData } from "../utils/api";
-
+import CompanyCard from "./CompanyCard";
 function SimilarCompanies({ companySymbol, setCompanySymbol }) {
-  const [data, setData] = useState(["AAPL", "DELL", "HPQ", "1337.HK", "HPE"]);
-  useEffect(() => {
-    fetchPeersData(companySymbol, setData);
-  }, [companySymbol]);
+  const [peers, setPeers] = useState(["TSLA", "F", "GM", "RIVN", "LCID"]);
+
+  // useEffect(() => {
+  //   fetchPeersData(companySymbol, setPeers);
+  // }, [companySymbol]);
   return (
-    <div className="flex justify-center w-full h-5/6">
-      {/* {console.log("similar comp", data)} */}
-      {data.map((item) => {
+    <div className="flex w-full h-5/6 ">
+      {peers.map((item) => {
         return (
-          <ul
-            className="bg-blue-500 cursor-pointer p-4 m-2 w-4/6"
-            key={item}
-            onClick={() => {
-              console.log("use effcet", item);
-              setCompanySymbol(item);
-            }}
-          >
-            {item}
-          </ul>
+          <CompanyCard
+            item={item}
+            peers={peers}
+            setCompanySymbol={setCompanySymbol}
+          />
         );
       })}
     </div>
   );
 }
-
 export default SimilarCompanies;
