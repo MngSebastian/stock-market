@@ -22,7 +22,7 @@ function CompanyCard({ item, setCompanySymbol, peers }) {
   };
   useEffect(() => {
     fetchCompanyData(item);
-  }, []);
+  }, [peers, setCompanySymbol]);
 
   return (
     <div className="flex justify-center bg-yellow-500 w-full">
@@ -33,7 +33,7 @@ function CompanyCard({ item, setCompanySymbol, peers }) {
           setCompanySymbol(item);
         }}
       >
-        <p>{data.profile ? data.profile.name : null}</p>
+        <p className="text-md">{data.profile ? data.profile.name : null}</p>
         <p>{item}</p>
         {console.log("card", data)}
       </ul>
