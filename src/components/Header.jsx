@@ -11,10 +11,8 @@ function Header({ data, setCompanySymbol }) {
     try {
       if (inputValue) {
         const searchResults = await searchSymbol(inputValue);
-        console.log("searchresults", searchResults);
         const result = searchResults.result;
         setBestMatches(result);
-        console.log("searchsymbol", searchResults);
       }
     } catch (error) {
       setBestMatches([]);

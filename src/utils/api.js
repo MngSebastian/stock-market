@@ -48,7 +48,19 @@ export const searchSymbol = async (query) => {
 
   return await response.json();
 };
+export const fetchPeersData = async (companySymbol, setData) => {
+  try {
+    const peersResponse = await axios.get(
+      `https://finnhub.io/api/v1/stock/peers?symbol=${companySymbol}&grouping=industry&token=${process.env.REACT_APP_FINNHUB_API_KEY}`
+    );
+    // Control how many similar companies you want in the state.
+    const peersArray = peersResponse.data.slice(0, 5);
 
+    setData(peersArray);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
 export const fetchHistoricalData = async (
   companySymbol,
   resolution,

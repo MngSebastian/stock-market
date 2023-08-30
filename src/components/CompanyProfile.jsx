@@ -6,8 +6,6 @@ function CompanyProfile({ profile }) {
   return (
     <div className="flex flex-col justify-evsenly h-full p-6">
       <div className="flex  justify-between  border-b-2 mb-6">
-        <p>{profile ? profile.marketCapitalization : null}</p>
-
         <h4 className="text-lg tracking-widest">Name:</h4>
         <p className="text-lg">{profile ? profile.name : null}</p>
       </div>
