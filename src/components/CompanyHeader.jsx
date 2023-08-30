@@ -25,7 +25,7 @@ function CompanyHeader({ companySymbol }) {
           } `}
         >
           {data.quote ? data.quote.d : null} (
-          {data.quote ? data.quote.dp : null}%)
+          {data.quote ? data.quote.dp.toFixed(2) : null}%)
         </p>
       </div>
       <div className="flex flex-col w-3/6 pl-20 pt-9">
