@@ -19,10 +19,12 @@ function Header({ data, setCompanySymbol }) {
       console.log(error);
     }
   };
-
+  // renders live once on input change and once on update
+  // bug found: if user continously spams input(which renders and requests) i get error 429 to many req
   useEffect(() => {
     updateBestMatches();
   }, [inputValue]);
+  console.log("header runns");
   return (
     <div className="flex w-full mb-6 h-[175px]">
       <div className="flex flex-col justify-center w-3/6 pl-6">

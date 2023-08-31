@@ -5,16 +5,17 @@ import CompanyProfile from "./CompanyProfile";
 import Chart from "./Chart";
 import { fetchCompanyData, apiKey } from "../utils/api";
 import SimilarCompanies from "./SimilarCompanies";
+
 function Dashboard() {
   const [data, setData] = useState({});
   const [companySymbol, setCompanySymbol] = useState("TSLA");
-  console.log("dashboard", companySymbol);
+
   useEffect(() => {
     fetchCompanyData(companySymbol, setData);
   }, [companySymbol]);
-  // console.log("ind", data.profile.finnhubIndustry);
   return (
     <div className="flex flex-col h-full w-full">
+      {/* {console.log("dash", companySymbol)} */}
       <Header
         setCompanySymbol={setCompanySymbol}
         data={data.profile ? data.profile : null}
@@ -25,7 +26,7 @@ function Dashboard() {
           <div className=" shadow-lg h-4/6">
             <Chart apiKey={apiKey} companySymbol={companySymbol} />
           </div>
-          <div className="flex justify-center items-center h-2/6">
+          <div className="flex items-end h-2/6">
             <SimilarCompanies
               companySymbol={companySymbol}
               setCompanySymbol={setCompanySymbol}

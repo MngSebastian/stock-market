@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function CompanyCard({ item, setCompanySymbol, peers }) {
+function CompanyCard({ symbol, setCompanySymbol, peers }) {
   const [data, setData] = useState({});
   //   fetch item data and use to display
 
-  const fetchCompanyData = async (item) => {
+  const fetchCompanyData = async (symbol) => {
     try {
-      const [profileResponse] = await Promise.all([
+      const [
+        profileResponse,
+        // quoteResponse
+      ] = await Promise.all([
         axios.get(
-          `https://finnhub.io/api/v1/stock/profile2?symbol=${item}&token=${process.env.REACT_APP_FINNHUB_API_KEY}`
+          `https://finnhub.io/api/v1/stock/profile2?symbol=${symbol}&token=${process.env.REACT_APP_FINNHUB_API_KEY}`
         ),
+        // axios.get(
+        //   `https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${process.env.REACT_APP_FINNHUB_API_KEY}`
+        // ),
       ]);
       const companyData = {
         profile: profileResponse.data,
+        // quote: quoteResponse.data,
       };
       setData(companyData);
     } catch (error) {
@@ -21,21 +28,27 @@ function CompanyCard({ item, setCompanySymbol, peers }) {
     }
   };
   useEffect(() => {
-    fetchCompanyData(item);
-  }, [peers, setCompanySymbol]);
+    fetchCompanyData(symbol);
+  }, [peers]);
 
   return (
-    <div className="flex justify-center bg-yellow-500 w-full">
+    <div className="flex justify-center  w-full">
       <ul
-        className="bg-blue-500 cursor-pointer p-4 m-2 w-4/6"
-        key={item}
+        className="border-2 justify-center border-gray-600 hover:border-gray-200 duration-300 rounded-lg cursor-pointer w-5/6 px-2"
         onClick={() => {
-          setCompanySymbol(item);
+          setCompanySymbol(symbol);
         }}
       >
-        <p className="text-md">{data.profile ? data.profile.name : null}</p>
-        <p>{item}</p>
-        {console.log("card", data)}
+        <p className="text-md bg-rsed-500 pt-2">
+          {data.profile ? data.profile.name : null}
+        </p>
+        <p className="">{symbol}</p>
+
+        <img
+          className=" rounded-full"
+          src={data.profile ? data.profile.logo : null}
+        />
+        {/* {console.log("card", data)} */}
       </ul>
     </div>
   );
