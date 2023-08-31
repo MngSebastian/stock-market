@@ -26,7 +26,10 @@ function Dashboard() {
           <div className=" shadow-lg h-4/6">
             <Chart apiKey={apiKey} companySymbol={companySymbol} />
           </div>
-          <div className="flex items-end h-2/6">
+          <div className="flex flex-col justify-between h-2/6">
+            <p className="flex text-xl justify-center pt-1">
+              Similar Companies
+            </p>
             <SimilarCompanies
               companySymbol={companySymbol}
               setCompanySymbol={setCompanySymbol}
