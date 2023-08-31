@@ -3,9 +3,8 @@ import axios from "axios";
 
 function CompanyCard({ symbol, setCompanySymbol, peers }) {
   const [data, setData] = useState({});
-  //   remember to use toFixed(2) and fix the bug
 
-  const fetchCompanyData = async (symbol) => {
+  const fetchProfileAndQuoteData = async (symbol) => {
     try {
       const [profileResponse, quoteResponse] = await Promise.all([
         axios.get(
@@ -25,7 +24,7 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
     }
   };
   useEffect(() => {
-    fetchCompanyData(symbol);
+    fetchProfileAndQuoteData(symbol);
   }, [peers]);
 
   return (
@@ -47,7 +46,9 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
         <p className="text-2xl">
           {/* toFixed raises an error when value returned by api is 0.toFixed(2) */}
           {/* {console.log("bigger?", data.quote)}$ */}$
-          {data.quote && data.quote.c > 0 ? data.quote.c.toFixed(2) : null}
+          {data.quote && data.quote.c !== null && data.quote.c > 0
+            ? data.quote.c.toFixed(2)
+            : null}
         </p>
         <div className="flex justify-between w-5/6">
           <p
@@ -57,7 +58,10 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
                 : "text-red-500"
             } `}
           >
-            ${data.quote ? data.quote.d : null}
+            $
+            {data.quote && data.quote.d !== null
+              ? data.quote.d.toFixed(2)
+              : null}
           </p>
           <p
             className={` ${
@@ -66,11 +70,15 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
                 : "text-red-500"
             } `}
           >
-            {data.quote ? data.quote.dp : null}%
+            {/* {data.quote ? data.quote.dp : null}% */}
+            {data.quote && data.quote.dp !== null
+              ? data.quote.dp.toFixed(2)
+              : null}
+            %
           </p>
         </div>
       </div>
-      <div className="flex justify-between bg-gray-500 bg-opacity-20 backdrop-blur-lg  rounded-lg w-full h-[100px]">
+      <div className="flex justify-between bg-gray-500 bg-opacity-20 backdrop-blur-lg  rounded-lg w-full h-[100px] p-2">
         <img
           className="rounded-full w-2/6 "
           src={data.profile ? data.profile.logo : null}

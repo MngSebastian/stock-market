@@ -28,9 +28,10 @@ function CompanyHeader({ companySymbol }) {
               : "text-red-500"
           } `}
         >
-          {/* {data.quote ? data.quote.d : null} ( */}
           {/* add plus sign if number is positive */}
-          {data.quote ? `${data.quote.dp.toFixed(2)}%` : null}
+          {data.quote && data.quote.dp !== null && data.quote.dp > 0
+            ? data.quote.c.toFixed(2)
+            : null}
         </p>
       </div>
       <div className="flex flex-col w-3/6 pl-20 pt-9">
