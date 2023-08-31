@@ -8,7 +8,7 @@ function SimilarCompanies({ companySymbol, setCompanySymbol }) {
     fetchPeersData(companySymbol, setPeers);
   }, [companySymbol]);
   return (
-    <div className="flex w-full h-5/6 ">
+    <div className="flex w-full h-5/6">
       {peers.map((symbol, index) => {
         return (
           <CompanyCard

@@ -32,24 +32,32 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
   }, [peers]);
 
   return (
-    <div className="flex justify-center  w-full">
-      <ul
-        className="border-2 justify-center border-gray-600 hover:border-gray-200 duration-300 rounded-lg cursor-pointer w-5/6 px-2"
-        onClick={() => {
-          setCompanySymbol(symbol);
-        }}
-      >
-        <p className="text-md bg-rsed-500 pt-2">
+    <div
+      className="flex flex-col justify-between border-2  border-gray-600 
+        hover:border-gray-200 duration-300 rounded-lg cursor-pointer w-5/6 mx-2"
+      onClick={() => {
+        setCompanySymbol(symbol);
+      }}
+    >
+      <div className="bg-red-500 px-2">
+        <p className="text-md  py-2">
           {data.profile ? data.profile.name : null}
         </p>
         <p className="">{symbol}</p>
-
+      </div>
+      <p className=" flex justify-center text-center px-2">
+        i want quote data, current price and change%
+      </p>
+      <div className="flex justify-between bg-gray-500 bg-opacity-20 backdrop-blur-lg  rounded-lg w-full h-[80px]">
         <img
-          className=" rounded-full"
+          className="rounded-full w-2/6"
           src={data.profile ? data.profile.logo : null}
+          alt="company logo"
         />
-        {/* {console.log("card", data)} */}
-      </ul>
+        <div className="flex  justify-center  items-center bg-red-500 w-4/6">
+          mini-chart
+        </div>
+      </div>
     </div>
   );
 }
