@@ -1,29 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Header from "./Header";
 import CompanyHeader from "./CompanyHeader";
 import CompanyProfile from "./CompanyProfile";
 import Chart from "./Chart";
 import { fetchCompanyData, apiKey } from "../utils/api";
 import SimilarCompanies from "./SimilarCompanies";
+import ThemeContext from "../context/ThemeContext";
 
 function Dashboard() {
   const [data, setData] = useState({});
   const [companySymbol, setCompanySymbol] = useState("TSLA");
-
+  const { lightMode, setLightMode } = useContext(ThemeContext);
   useEffect(() => {
     fetchCompanyData(companySymbol, setData);
   }, [companySymbol]);
   return (
     <div className="flex flex-col h-full w-full">
-      {/* {console.log("dash", companySymbol)} */}
       <Header
         setCompanySymbol={setCompanySymbol}
         data={data.profile ? data.profile : null}
       />
 
-      <div className="flex w-full  mb-4 h-full">
+      <div
+        className={`flex ${
+          lightMode ? "bg-offWhite" : "bg-primary"
+        } w-full pb-4 h-full`}
+      >
         <div className="w-4/6 h-full mr-6 ml-6">
-          <div className=" shadow-lg h-4/6">
+          <div
+            className={` ${
+              lightMode ? "bg-white" : "shadow-custom"
+            } rounded-lg h-4/6`}
+          >
             <Chart
               apiKey={apiKey}
               companySymbol={companySymbol}
@@ -32,7 +40,11 @@ function Dashboard() {
             />
           </div>
           <div className="flex flex-col justify-between h-2/6">
-            <p className="flex text-xl justify-center pt-1">
+            <p
+              className={`flex  justify-center ${
+                lightMode ? "text-black " : null
+              } text-xl pt-1`}
+            >
               Similar Companies
             </p>
             <SimilarCompanies
@@ -41,11 +53,15 @@ function Dashboard() {
             />
           </div>
         </div>
-        <div className=" flex flex-col justify-between bg-blse-500 w-2/6 h-full mr-6">
-          <div className="shadow-lg shadow-gray-200 rounded-lg h-1/6 p-2">
+        <div className=" flex flex-col justify-between w-2/6 h-full mr-6">
+          <div
+            className={`${
+              lightMode ? "bg-white" : null
+            } shadow-custom rounded-lg  h-1/6 p-2`}
+          >
             <CompanyHeader companySymbol={companySymbol} />
           </div>
-          <div className="shadow-lg shadow-gray-200 rounded-lg h-[80%]">
+          <div className="shadow-custom rounded-lg h-[80%]">
             <CompanyProfile profile={data.profile} />
           </div>
         </div>

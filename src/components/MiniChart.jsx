@@ -1,23 +1,15 @@
-import React, { useState, useEffect, PureComponent } from "react";
+import React, { useState, useEffect } from "react";
 import {
   convertUnixTimestampToDate,
   convertDateToUnixTimestamp,
   createDate,
 } from "../helpers/date-helper";
-import ChartFilter from "./ChartFilter";
 
-import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
+import { AreaChart, Area, YAxis, ResponsiveContainer } from "recharts";
 import { chartConfig } from "../constants/chart-config";
 import { fetchHistoricalData } from "../utils/api.js";
-
+// take the chart component functions and put them in helper.js
+//and request them in chart and minichart component to make them cleaner
 function MiniChart({ companySymbol }) {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState("1W");
@@ -59,12 +51,12 @@ function MiniChart({ companySymbol }) {
 
     updateChartData();
   }, [companySymbol, filter]);
-  console.log("minichart data", data);
   return (
-    <div className="flex  justify-center  items-center bg-bluse-500 w-4/6 px-2">
+    <div className="flex justify-center items-center w-4/6">
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={data}>
           <Area
+            className="cursor-pointer"
             type="monotone"
             dataKey="value"
             stroke="#312e81"

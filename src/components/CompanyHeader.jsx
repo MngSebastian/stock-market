@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { fetchQuoteData } from "../utils/api";
+import ThemeContext from "../context/ThemeContext";
 //todo: make a variable for the green/red color so i dont repeat the same code
 function CompanyHeader({ companySymbol }) {
   const [data, setData] = useState({});
-
+  const { lightMode, setLightMode } = useContext(ThemeContext);
   useEffect(() => {
     fetchQuoteData(companySymbol, setData);
   }, [companySymbol]);
@@ -13,11 +14,9 @@ function CompanyHeader({ companySymbol }) {
   //   return "No data available for the provided symbol.";
   // }
   return (
-    <div className="flex bg-gresen-500 w-6/6 h-full">
-      <div className="w-3/6">
-        <p className=" text-sm lg:text-xl pb-2">
-          {companySymbol.toUpperCase()}
-        </p>
+    <div className="flex w-6/6 h-full">
+      <div className={`${lightMode ? "text-black" : null} w-3/6`}>
+        <p className="text-sm lg:text-xl pb-2">{companySymbol.toUpperCase()}</p>
         <p className="text-sm lg:text-2xl pb-2 pl-20">
           ${data.quote ? data.quote.c : null}
         </p>
@@ -43,7 +42,9 @@ function CompanyHeader({ companySymbol }) {
         </p>
       </div>
       <div className="flex flex-col w-3/6 pl-20 pt-9">
-        <h1 className="text-xl pb-2">Day's Range</h1>
+        <h1 className={`text-xl ${lightMode ? "text-black" : null} pb-2`}>
+          Day's Range
+        </h1>
         <p className="text-lg font-medium tracking-wider w-3/6">
           <span className="bg-red-500 rounded-lg p-1 mr-4">
             {/* ${data.quote ? parseFloat(data.quote.l).toFixed(2) : null} */}$

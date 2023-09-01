@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { IoMdSearch, IoMdClose } from "react-icons/io";
 import { searchSymbol } from "../utils/api";
 import SearchResults from "./SearchResults";
+import ThemeContext from "../context/ThemeContext";
 
 function Header({ data, setCompanySymbol }) {
   const [inputValue, setInputValue] = useState("");
   const [bestMatches, setBestMatches] = useState([]);
+  const { lightMode, setLightMode } = useContext(ThemeContext);
 
   const updateBestMatches = async () => {
     try {
@@ -26,7 +28,11 @@ function Header({ data, setCompanySymbol }) {
   }, [inputValue]);
   console.log("header runns");
   return (
-    <div className="flex w-full mb-6 h-[175px]">
+    <div
+      className={`flex ${
+        lightMode ? "bg-offWhite" : "bg-primary"
+      } w-full h-[175px]`}
+    >
       <div className="flex flex-col justify-center w-3/6 pl-6">
         <p className="text-4xl  pb-4">{data ? data.name : null}</p>
         <div className="flex justify-evenly items-center border-2 w-[350px] bg-transparent h-[34px] rounded-lg">
@@ -76,6 +82,14 @@ function Header({ data, setCompanySymbol }) {
         </div>
       </div>
       <div className="flex justify-end items-center w-3/6 pr-6">
+        <button
+          onClick={() => {
+            setLightMode(!lightMode);
+          }}
+          className="mr-40 border-2"
+        >
+          switch
+        </button>
         <div className="w-[100px] h-[100px]">
           <img
             className="w-full h-full"

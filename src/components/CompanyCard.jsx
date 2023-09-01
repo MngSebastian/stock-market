@@ -1,8 +1,8 @@
-import React, { useState, useEffect, PureComponent } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import axios from "axios";
 import MiniChart from "./MiniChart";
-
+import ThemeContext from "../context/ThemeContext";
 // to fix: card is not clickable when user hovers over miniChart
 // to fix: some companies siamply dont return full data and their card look empy
 // if comapany.price or change or percent is not available, remove from array of peers
@@ -10,6 +10,7 @@ import MiniChart from "./MiniChart";
 // make sure data gets converted to correct format, and plug in
 function CompanyCard({ symbol, setCompanySymbol, peers }) {
   const [data, setData] = useState({});
+  const { lightMode, setLightMode } = useContext(ThemeContext);
 
   const fetchProfileAndQuoteData = async (symbol) => {
     try {
@@ -36,17 +37,25 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
 
   return (
     <div
-      className="flex flex-col justify-between border-2  border-gray-600 
-        hover:border-gray-200 duration-300 rounded-lg cursor-pointer w-5/6 mx-2"
+      className={`flex flex-col justify-between ${
+        lightMode ? "bg-white" : null
+      } shadow-custom border-gray-600 
+        hover:shadow-customHover duration-300 transition-shadow rounded-lg cursor-pointer w-5/6 mx-2`}
       onClick={() => {
         setCompanySymbol(symbol);
       }}
     >
-      <div className="bg-gray-500 bg-opacity-20 backdrop-blur-lg h-[90px] px-2">
-        <p className="text-md  py-2">
+      {/*  bg-gray-500 bg-opacity-20 backdrop-blur-lg  
+      rounded-tl-lg rounded-tr-lg is bein used in 2 places, make a variable?*/}
+      <div
+        className={`bg-gray-500 bg-opacity-20 backdrop-blur-lg ${
+          lightMode ? "bg-opacity-100" : null
+        }  rounded-tl-lg rounded-tr-lg h-[78px] px-2`}
+      >
+        <p className="text-md py-1">
           {data.profile ? data.profile.name : null}
         </p>
-        <p className="">{symbol}</p>
+        <p className="text-sm text-slate-400">{symbol}</p>
       </div>
 
       <div className="flex flex-col items-center justify-center h-3/6">
@@ -85,7 +94,11 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
           </p>
         </div>
       </div>
-      <div className="flex justify-between bg-gray-500 bg-opacity-20 backdrop-blur-lg  rounded-lg w-full h-[100px] p-2">
+      <div
+        className={`flex justify-between bg-gray-500 bg-opacity-20 backdrop-blur-lg ${
+          lightMode ? "bg-opacity-100" : null
+        }  rounded-br-lg rounded-bl-lg w-full h-[100px] p-2`}
+      >
         <img
           className="rounded-full w-2/6 "
           src={data.profile ? data.profile.logo : null}
