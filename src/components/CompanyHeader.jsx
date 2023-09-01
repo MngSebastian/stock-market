@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchQuoteData } from "../utils/api";
-
+//todo: make a variable for the green/red color so i dont repeat the same code
 function CompanyHeader({ companySymbol }) {
   const [data, setData] = useState({});
 
@@ -29,9 +29,17 @@ function CompanyHeader({ companySymbol }) {
           } `}
         >
           {/* add plus sign if number is positive */}
-          {data.quote && data.quote.dp !== null && data.quote.dp > 0
-            ? data.quote.c.toFixed(2)
+          {/* toFixed(2)  will probably raise an error when quote.dp is 0 */}
+          <span className="mr-2">
+            $
+            {data.quote && data.quote.d !== null
+              ? data.quote.d.toFixed(2)
+              : null}
+          </span>
+          {data.quote && data.quote.dp !== null
+            ? data.quote.dp.toFixed(2)
             : null}
+          %
         </p>
       </div>
       <div className="flex flex-col w-3/6 pl-20 pt-9">

@@ -3,6 +3,11 @@ import React, { useState, useEffect, PureComponent } from "react";
 import axios from "axios";
 import MiniChart from "./MiniChart";
 
+// to fix: card is not clickable when user hovers over miniChart
+// to fix: some companies siamply dont return full data and their card look empy
+// if comapany.price or change or percent is not available, remove from array of peers
+// trace how data is used in the big chart, get that same data in this componenet, pass it to minichart
+// make sure data gets converted to correct format, and plug in
 function CompanyCard({ symbol, setCompanySymbol, peers }) {
   const [data, setData] = useState({});
 
@@ -86,7 +91,7 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
           src={data.profile ? data.profile.logo : null}
           alt="logo"
         />
-        <MiniChart />
+        <MiniChart companySymbol={symbol} />
       </div>
     </div>
   );
