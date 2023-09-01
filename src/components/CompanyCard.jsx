@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, PureComponent } from "react";
+
 import axios from "axios";
+import MiniChart from "./MiniChart";
 
 function CompanyCard({ symbol, setCompanySymbol, peers }) {
   const [data, setData] = useState({});
@@ -84,9 +86,7 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
           src={data.profile ? data.profile.logo : null}
           alt="logo"
         />
-        <div className="flex  justify-center  items-center bg-resd-500 w-4/6">
-          mini-chart
-        </div>
+        <MiniChart />
       </div>
     </div>
   );

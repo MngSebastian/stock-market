@@ -24,7 +24,12 @@ function Dashboard() {
       <div className="flex w-full  mb-4 h-full">
         <div className="w-4/6 h-full mr-6 ml-6">
           <div className=" shadow-lg h-4/6">
-            <Chart apiKey={apiKey} companySymbol={companySymbol} />
+            <Chart
+              apiKey={apiKey}
+              companySymbol={companySymbol}
+              width={"100%"}
+              height={"85%"}
+            />
           </div>
           <div className="flex flex-col justify-between h-2/6">
             <p className="flex text-xl justify-center pt-1">

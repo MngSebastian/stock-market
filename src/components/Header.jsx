@@ -32,6 +32,7 @@ function Header({ data, setCompanySymbol }) {
         <div className="flex justify-evenly items-center border-2 w-[350px] bg-transparent h-[34px] rounded-lg">
           <input
             type="text"
+            name="Company symbol"
             placeholder="Enter company symbol"
             className="w-full h-[34px] outline-none text-white bg-transparent rounded-lg pl-2 text-sm"
             value={inputValue}

@@ -14,7 +14,6 @@ import {
 } from "recharts";
 import { chartConfig } from "../constants/chart-config";
 import ChartFilter from "./ChartFilter";
-import axios from "axios";
 import { fetchHistoricalData } from "../utils/api.js";
 
 function Chart({ apiKey, companySymbol }) {
