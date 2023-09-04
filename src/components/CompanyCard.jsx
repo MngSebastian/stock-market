@@ -37,10 +37,12 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
 
   return (
     <div
-      className={`flex flex-col justify-between ${
-        lightMode ? "bg-white" : null
-      } shadow-custom border-gray-600 
-        hover:shadow-customHover duration-300 transition-shadow rounded-lg cursor-pointer  w-5/6 mx-2`}
+      className={`flex flex-col justify-between border ${
+        lightMode
+          ? "bg-white border-slate-300 hover:shadow-CardDark"
+          : "hover:shadow-CardLight border-slate-800"
+      }   
+         duration-300 transition-shadow rounded-lg cursor-pointer  w-5/6 mx-2`}
       onClick={() => {
         setCompanySymbol(symbol);
       }}
@@ -57,9 +59,9 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
       </div>
 
       <div className="flex flex-col items-center justify-center h-3/6">
-        <p className="text-2xl">
+        <p className={`text-2xl ${lightMode ? "text-black" : "text-white"}`}>
           {/* toFixed raises an error when value returned by api is 0.toFixed(2) */}
-          {/* {console.log("bigger?", data.quote)}$ */}$
+          $
           {data.quote && data.quote.c !== null && data.quote.c > 0
             ? data.quote.c.toFixed(2)
             : null}

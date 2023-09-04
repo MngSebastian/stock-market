@@ -93,7 +93,7 @@ function Header({ data, setCompanySymbol }) {
             }}
             className={` flex justify-center items-center border ${
               lightMode
-                ? " text-black border border-slate-500 hover:shadow-moonShadowDark"
+                ? " text-black border border-slate-400 hover:shadow-moonShadowDark"
                 : "border-slate-500 hover:shadow-moonShadowLight"
             } rounded-lg   transition duration-300 p-1`}
           >
