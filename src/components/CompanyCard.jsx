@@ -8,6 +8,8 @@ import ThemeContext from "../context/ThemeContext";
 // if comapany.price or change or percent is not available, remove from array of peers
 // trace how data is used in the big chart, get that same data in this componenet, pass it to minichart
 // make sure data gets converted to correct format, and plug in
+//todo: if a company does not provide data, and the user clicks on the card, the data of previous company stays
+
 function CompanyCard({ symbol, setCompanySymbol, peers }) {
   const [data, setData] = useState({});
   const { lightMode, setLightMode } = useContext(ThemeContext);
@@ -59,7 +61,11 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
       </div>
 
       <div className="flex flex-col items-center justify-center h-3/6">
-        <p className={`text-2xl ${lightMode ? "text-black" : "text-white"}`}>
+        <p
+          className={` font-light text-2xl ${
+            lightMode ? "text-black" : "text-white"
+          }`}
+        >
           {/* toFixed raises an error when value returned by api is 0.toFixed(2) */}
           $
           {data.quote && data.quote.c !== null && data.quote.c > 0
@@ -70,8 +76,8 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
           <p
             className={` ${
               (data.quote ? data.quote.d : null) >= 0
-                ? "text-green-500"
-                : "text-red-500"
+                ? "text-green"
+                : "text-red"
             } `}
           >
             $
@@ -82,8 +88,8 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
           <p
             className={` ${
               (data.quote ? data.quote.dp : null) >= 0
-                ? "text-green-500"
-                : "text-red-500"
+                ? "text-green"
+                : "text-red"
             } `}
           >
             {/* {data.quote ? data.quote.dp : null}% */}

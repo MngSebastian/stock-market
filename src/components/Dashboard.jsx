@@ -39,14 +39,7 @@ function Dashboard() {
               height={"85%"}
             />
           </div>
-          <div className="flex flex-col justify-between h-2/6">
-            <p
-              className={`flex  justify-center ${
-                lightMode ? "text-black " : null
-              } text-xl pt-1`}
-            >
-              Similar Companies
-            </p>
+          <div className="flex flex-col justify-between h-2/6 mt-8">
             <SimilarCompanies
               companySymbol={companySymbol}
               setCompanySymbol={setCompanySymbol}

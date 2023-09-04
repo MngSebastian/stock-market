@@ -8,13 +8,13 @@ function CompanyProfile({ profile }) {
     return (number / 1000).toFixed(2);
   };
 
-  const styles = `flex  justify-between  border-b-2 ${
+  const styles = `flex  justify-between  border-b ${
     lightMode ? "border-black" : null
-  } mb-6`;
+  } mb-10`;
 
   return (
     <div
-      className={`flex  flex-col ${
+      className={`flex font-light flex-col ${
         lightMode ? "bg-white text-black shadow-dark" : "shadow-light"
       } h-full rounded-lg p-6`}
     >

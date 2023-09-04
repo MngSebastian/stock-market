@@ -9,6 +9,9 @@ module.exports = {
         primary: "#0C1C2C",
         offWhite: "#f2f2f2",
         white: "#F5F5F5",
+        pinkDark: "rgb(170,22,190)",
+        green: "rgb(39, 154, 96)",
+        red: "rgb(172, 57, 43)",
       },
       boxShadow: {
         light: "rgba(155, 155, 155, .5) 0px 0px 2px",

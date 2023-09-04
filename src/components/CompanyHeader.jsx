@@ -15,21 +15,23 @@ function CompanyHeader({ companySymbol }) {
   // }
   return (
     <div className="flex w-6/6 h-full">
-      <div className={`${lightMode ? "text-black" : null} w-3/6`}>
-        <p className="text-sm lg:text-xl pb-2">{companySymbol.toUpperCase()}</p>
-        <p className="text-sm lg:text-2xl pb-2 pl-20">
+      <div
+        className={`${
+          lightMode ? "text-black" : null
+        } flex flex-col items-center w-3/6`}
+      >
+        <p className="text-md pb-2 pr-64">{companySymbol.toUpperCase()}</p>
+        <p className="text-sm lg:text-2xl font-light pb-2">
           ${data.quote ? data.quote.c : null}
         </p>
         <p
-          className={`text-sm md:text-lg pl-20 ${
-            (data.quote ? data.quote.d : null) >= 0
-              ? "text-green-500"
-              : "text-red-500"
+          className={`flex justify-around text-sm md:text-lg w-4/6 ${
+            (data.quote ? data.quote.d : null) >= 0 ? "text-green" : "text-red"
           } `}
         >
           {/* add plus sign if number is positive */}
           {/* toFixed(2)  will probably raise an error when quote.dp is 0 */}
-          <span className="mr-2">
+          <span>
             $
             {data.quote && data.quote.d !== null
               ? data.quote.d.toFixed(2)
@@ -45,12 +47,12 @@ function CompanyHeader({ companySymbol }) {
         <h1 className={`text-xl ${lightMode ? "text-black" : null} pb-2`}>
           Day's Range
         </h1>
-        <p className="text-lg font-medium tracking-wider w-3/6">
-          <span className="bg-red-500 rounded-lg p-1 mr-4">
+        <p className="text-md tracking-wider w-3/6">
+          <span className="bg-red rounded-lg p-1 mr-4 ">
             {/* ${data.quote ? parseFloat(data.quote.l).toFixed(2) : null} */}$
             {parseFloat(data.quote ? data.quote.l : null).toFixed(2)}
           </span>
-          <span className=" bg-green-500 rounded-lg p-1">
+          <span className=" bg-green rounded-lg p-1">
             {/* ${data.quote ? parseFloat(data.quote.h).toFixed(2) : null} */}$
             {parseFloat(data.quote ? data.quote.h : null).toFixed(2)}
           </span>
