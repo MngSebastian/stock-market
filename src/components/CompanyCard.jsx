@@ -40,19 +40,17 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
       className={`flex flex-col justify-between ${
         lightMode ? "bg-white" : null
       } shadow-custom border-gray-600 
-        hover:shadow-customHover duration-300 transition-shadow rounded-lg cursor-pointer w-5/6 mx-2`}
+        hover:shadow-customHover duration-300 transition-shadow rounded-lg cursor-pointer  w-5/6 mx-2`}
       onClick={() => {
         setCompanySymbol(symbol);
       }}
     >
-      {/*  bg-gray-500 bg-opacity-20 backdrop-blur-lg  
-      rounded-tl-lg rounded-tr-lg is bein used in 2 places, make a variable?*/}
       <div
         className={`bg-gray-500 bg-opacity-20 backdrop-blur-lg ${
           lightMode ? "bg-opacity-100" : null
         }  rounded-tl-lg rounded-tr-lg h-[78px] px-2`}
       >
-        <p className="text-md py-1">
+        <p className={` ${lightMode ? "text-black" : null} text-md py-1`}>
           {data.profile ? data.profile.name : null}
         </p>
         <p className="text-sm text-slate-400">{symbol}</p>

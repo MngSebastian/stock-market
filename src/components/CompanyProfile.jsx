@@ -14,8 +14,8 @@ function CompanyProfile({ profile }) {
 
   return (
     <div
-      className={`flex flex-col ${
-        lightMode ? "bg-white text-black" : null
+      className={`flex  flex-col ${
+        lightMode ? "bg-white text-black shadow-dark" : "shadow-light"
       } h-full rounded-lg p-6`}
     >
       <div className={styles}>

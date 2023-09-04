@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { IoMdSearch, IoMdClose } from "react-icons/io";
+import { MoonIcon } from "@heroicons/react/24/outline";
+
 import { searchSymbol } from "../utils/api";
 import SearchResults from "./SearchResults";
 import ThemeContext from "../context/ThemeContext";
@@ -34,7 +36,9 @@ function Header({ data, setCompanySymbol }) {
       } w-full h-[175px]`}
     >
       <div className="flex flex-col justify-center w-3/6 pl-6">
-        <p className="text-4xl  pb-4">{data ? data.name : null}</p>
+        <p className={`text-4xl ${lightMode ? "text-black" : null} pb-4`}>
+          {data ? data.name : null}
+        </p>
         <div className="flex justify-evenly items-center border-2 w-[350px] bg-transparent h-[34px] rounded-lg">
           <input
             type="text"
@@ -58,7 +62,7 @@ function Header({ data, setCompanySymbol }) {
               }}
               className="bg-transparent hover:bg-slate-700 rounded-full mr-2"
             >
-              <IoMdClose size={16} />
+              <IoMdClose size={18} />
             </button>
           )}
           <button
@@ -69,7 +73,7 @@ function Header({ data, setCompanySymbol }) {
               setInputValue("");
             }}
           >
-            <IoMdSearch size={18} />
+            <IoMdSearch size={16} />
           </button>
           {inputValue && bestMatches.length > 0 ? (
             <SearchResults
@@ -81,21 +85,31 @@ function Header({ data, setCompanySymbol }) {
           ) : null}
         </div>
       </div>
-      <div className="flex justify-end items-center w-3/6 pr-6">
-        <button
-          onClick={() => {
-            setLightMode(!lightMode);
-          }}
-          className="mr-40 border-2"
-        >
-          switch
-        </button>
-        <div className="w-[100px] h-[100px]">
-          <img
-            className="w-full h-full"
-            src={data ? data.logo : null}
-            alt="Company logo"
-          />
+      <div className="flex justify-end items-center w-3/6 pr-6 ">
+        <div className=" flex items-center justify-center w-2/6 h-4/6">
+          <button
+            onClick={() => {
+              setLightMode(!lightMode);
+            }}
+            className={` flex justify-center items-center border ${
+              lightMode
+                ? " text-black border border-slate-500 hover:shadow-moonShadowDark"
+                : "border-slate-500 hover:shadow-moonShadowLight"
+            } rounded-lg   transition duration-300 p-1`}
+          >
+            {lightMode ? (
+              <MoonIcon
+                fill="gray"
+                color="blue"
+                className="h-6 w-6 text-slate-400"
+              />
+            ) : (
+              <MoonIcon fill="yellow" className="h-6 w-6 text-yellow-300" />
+            )}
+          </button>
+        </div>
+        <div className="flex justify-end w-[100px] h-[100px]  ">
+          <img src={data ? data.logo : null} alt="Company logo" />
         </div>
       </div>
     </div>

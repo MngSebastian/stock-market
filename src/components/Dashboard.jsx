@@ -29,7 +29,7 @@ function Dashboard() {
         <div className="w-4/6 h-full mr-6 ml-6">
           <div
             className={` ${
-              lightMode ? "bg-white" : "shadow-custom"
+              lightMode ? "bg-white shadow-dark" : "shadow-light"
             } rounded-lg h-4/6`}
           >
             <Chart
@@ -56,8 +56,8 @@ function Dashboard() {
         <div className=" flex flex-col justify-between w-2/6 h-full mr-6">
           <div
             className={`${
-              lightMode ? "bg-white" : null
-            } shadow-custom rounded-lg  h-1/6 p-2`}
+              lightMode ? "bg-offWhite shadow-dark" : "shadow-light"
+            }  rounded-lg  h-1/6 p-2`}
           >
             <CompanyHeader companySymbol={companySymbol} />
           </div>

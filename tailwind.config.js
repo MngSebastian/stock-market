@@ -7,12 +7,15 @@ module.exports = {
     extend: {
       colors: {
         primary: "#0C1C2C",
-        offWhite: "#DEDEDE ",
+        offWhite: "#f2f2f2",
         white: "#F5F5F5",
       },
       boxShadow: {
-        custom: "rgba(155, 155, 155, .5) 0px 0px 2px",
+        light: "rgba(155, 155, 155, .5) 0px 0px 2px",
+        dark: "rgba(20, 20, 20, .5) 0px 0px 6px",
         customHover: "rgba(180, 180, 180, .5) 0px 0px 8px",
+        moonShadowLight: "rgba(255, 255, 255, .6) 0px 0px 7px .6px",
+        moonShadowDark: "rgba(0, 0, 0, .6) 0px 0px 7px .6px",
       },
     },
   },
