@@ -8,8 +8,10 @@ function CompanyHeader({ companySymbol }) {
   useEffect(() => {
     fetchQuoteData(companySymbol, setData);
   }, [companySymbol]);
+  //todo: find a responsive solution for symbol in the left corner
 
   // figure out how to handle when user inputs giberish for a stocksymbol so i dont get toFixed error
+  // return message rather than error on unknown input
   // if (!data.quote || !data.quote.c) {
   //   return "No data available for the provided symbol.";
   // }
@@ -20,7 +22,9 @@ function CompanyHeader({ companySymbol }) {
           lightMode ? "text-black" : null
         } flex flex-col items-center w-3/6`}
       >
-        <p className="text-md pb-2 pr-64">{companySymbol.toUpperCase()}</p>
+        <div className="flex w-full">
+          <p className=" flex text-md pb-2">{companySymbol.toUpperCase()}</p>
+        </div>
         <p className="text-sm lg:text-2xl font-light pb-2">
           ${data.quote ? data.quote.c : null}
         </p>

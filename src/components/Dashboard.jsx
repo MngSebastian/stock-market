@@ -6,7 +6,7 @@ import Chart from "./Chart";
 import { fetchCompanyData, apiKey } from "../utils/api";
 import SimilarCompanies from "./SimilarCompanies";
 import ThemeContext from "../context/ThemeContext";
-
+// todo: handle what happenes when the api does not rreturn data for a specific ticker
 function Dashboard() {
   const [data, setData] = useState({});
   const [companySymbol, setCompanySymbol] = useState("TSLA");
@@ -48,7 +48,7 @@ function Dashboard() {
         </div>
         <div className=" flex flex-col justify-between w-2/6 h-full mr-6">
           <div
-            className={`${
+            className={` ${
               lightMode ? "bg-offWhite shadow-dark" : "shadow-light"
             }  rounded-lg  h-1/6 p-2`}
           >

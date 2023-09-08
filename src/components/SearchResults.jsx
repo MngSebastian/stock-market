@@ -1,5 +1,6 @@
 import React from "react";
-
+// add: when no stock ticker matches the input
+// open the dropdown with "No stocks found wit this ticker."
 function SearchResults({
   results,
   setCompanySymbol,

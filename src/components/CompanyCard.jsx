@@ -9,7 +9,7 @@ import ThemeContext from "../context/ThemeContext";
 // trace how data is used in the big chart, get that same data in this componenet, pass it to minichart
 // make sure data gets converted to correct format, and plug in
 //todo: if a company does not provide data, and the user clicks on the card, the data of previous company stays
-
+// todo: responsive design for company cards
 function CompanyCard({ symbol, setCompanySymbol, peers }) {
   const [data, setData] = useState({});
   const { lightMode, setLightMode } = useContext(ThemeContext);
