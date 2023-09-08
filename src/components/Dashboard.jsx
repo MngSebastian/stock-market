@@ -22,7 +22,7 @@ function Dashboard() {
       />
 
       <div
-        className={`flex ${
+        className={`flex  ${
           lightMode ? "bg-offWhite" : "bg-primary"
         } w-full pb-4 h-full`}
       >
@@ -30,7 +30,7 @@ function Dashboard() {
           <div
             className={` ${
               lightMode ? "bg-white shadow-dark" : "shadow-light"
-            } rounded-lg h-4/6`}
+            } rounded-lg h-[58%] xl:h-4/6`}
           >
             <Chart
               apiKey={apiKey}
