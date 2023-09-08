@@ -23,6 +23,9 @@ module.exports = {
         moonShadowDark: "rgba(0, 0, 0, .6) 0px 0px 5px .6px",
       },
     },
+    screens: {
+      lg: "1024px",
+    },
   },
   plugins: [],
 };

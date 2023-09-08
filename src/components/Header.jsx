@@ -118,7 +118,7 @@ function Header({ data, setCompanySymbol }) {
             )}
           </button>
         </div>
-        <div className="flex justify-end w-[100px] h-[100px]  ">
+        <div className="flex justify-end w-[80px] h-[80px] ">
           <img src={data ? data.logo : null} alt="Company logo" />
         </div>
       </div>

@@ -47,7 +47,7 @@ function CompanyHeader({ companySymbol }) {
           %
         </p>
       </div>
-      <div className="flex flex-col w-3/6 pl-20 pt-9">
+      <div className="flex  flex-col w-3/6 xl:pl-20 pt-9">
         <h1 className={`text-xl ${lightMode ? "text-black" : null} pb-2`}>
           Day's Range
         </h1>
