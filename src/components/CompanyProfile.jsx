@@ -16,30 +16,32 @@ function CompanyProfile({ profile }) {
     <div
       className={`flex font-light flex-col ${
         lightMode ? "bg-white text-black shadow-dark" : "shadow-light"
-      } h-full rounded-lg p-6`}
+      } h-full rounded-lg p-4 lg:p-6`}
     >
       <div className={styles}>
-        <h4 className="text-lg tracking-widest">Name:</h4>
-        <p className="text-lg">{profile ? profile.name : null}</p>
+        <h4 className="text-md lg:text-lg tracking-widest">Name:</h4>
+        <p>{profile ? profile.name : null}</p>
       </div>
       <div className={styles}>
-        <h4 className="text-lg tracking-widest">Exchange:</h4>
+        <h4 className="text-md lg:text-lg tracking-widest">Exchange:</h4>
         <p>{profile ? profile.exchange : null}</p>
       </div>
       <div className={styles}>
-        <h4 className="text-lg tracking-widest">Country:</h4>
+        <h4 className="text-md lg:text-lg tracking-widest">Country:</h4>
         <p>{profile ? profile.country : null}</p>
       </div>
       <div className={styles}>
-        <h4 className="text-lg tracking-widest">Currency:</h4>
+        <h4 className="text-md lg:text-lg tracking-widest">Currency:</h4>
         <p>{profile ? profile.currency : null}</p>
       </div>
       <div className={styles}>
-        <h4 className="text-lg tracking-widest">Industry:</h4>
+        <h4 className="text-md lg:text-lg tracking-widest">Industry:</h4>
         <p>{profile ? profile.finnhubIndustry : null}</p>
       </div>
       <div className={styles}>
-        <h4 className="text-lg tracking-widest">Market Capitalization:</h4>
+        <h4 className="text-md lg:text-lg tracking-widest">
+          Market Capitalization:
+        </h4>
         <p>
           {profile
             ? convertMillionToBillion(profile.marketCapitalization)

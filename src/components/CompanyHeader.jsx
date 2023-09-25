@@ -16,19 +16,19 @@ function CompanyHeader({ companySymbol }) {
   //   return "No data available for the provided symbol.";
   // }
   return (
-    <div className="flex flex-col  w-6/6 h-full">
+    <div className="flex flex-col w-6/6 h-full">
       <div className="w-full">
-        <p className=" flex lg:text-sm xl:text-lg">
+        <p className=" flex md:text-sm text-stone-600 md:text-lime-600 lg:text-md xl:text-lg">
           {companySymbol.toUpperCase()}
         </p>
       </div>
       <div className="flex w-full  h-full">
         <div className="flex flex-col  items-center justify-center w-full">
-          <p className=" lg:text-xl xl:text-2xl font-light pb-2">
+          <p className=" md:text-lg lg:text-xl xl:text-2xl font-light pb-2">
             ${data.quote ? data.quote.c : null}
           </p>
           <p
-            className={`flex justify-around  lg:text-md xl:text-lg w-4/6 ${
+            className={`flex justify-around md:text-lg lg:text-md xl:text-lg w-4/6 ${
               (data.quote ? data.quote.d : null) >= 0
                 ? "text-green"
                 : "text-red"
@@ -51,7 +51,7 @@ function CompanyHeader({ companySymbol }) {
         </div>
         <div className=" flex justify-center items-center flex-col   w-full">
           <h1
-            className={`lg:text-lg xl:text-xl ${
+            className={`md:text-lg lg:text-lg xl:text-xl ${
               lightMode ? "text-black" : null
             } pb-2`}
           >

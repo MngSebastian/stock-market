@@ -22,15 +22,15 @@ function Dashboard() {
       />
 
       <div
-        className={`flex  ${
+        className={`flex items-center flex-col-reverse lg:flex-row overflow-auto ${
           lightMode ? "bg-offWhite" : "bg-primary"
-        } w-full pb-4 h-full`}
+        } w-full pt-1 pb-4 h-full`}
       >
         <div className="w-4/6 h-full mr-6 ml-6">
           <div
             className={` ${
               lightMode ? "bg-white shadow-dark" : "shadow-light"
-            } rounded-lg lg:h-[60%] xl:h-4/6`}
+            } rounded-lg md:h-[45%] lg:h-[60%] xl:h-4/6 mt-12 lg:mt-0`}
           >
             <Chart
               apiKey={apiKey}
@@ -46,11 +46,11 @@ function Dashboard() {
             />
           </div>
         </div>
-        <div className=" flex flex-col justify-between w-2/6 h-full mr-6">
+        <div className=" flex flex-col justify-between w-4/6 lg:w-2/6 h-full lg:mr-6">
           <div
             className={` ${
               lightMode ? "bg-offWhite shadow-dark" : "shadow-light"
-            }  rounded-lg  h-1/6 p-2`}
+            }  rounded-lg  h-2/6 lg:h-1/6 p-2 mb-6 lg:mb-0`}
           >
             <CompanyHeader companySymbol={companySymbol} />
           </div>
