@@ -44,7 +44,7 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
           ? "bg-white border-slate-300 hover:shadow-CardDark"
           : "hover:shadow-CardLight border-slate-800"
       }   
-         duration-300 transition-shadow rounded-lg cursor-pointer  w-5/6 mx-2`}
+         duration-300 transition-shadow rounded-lg cursor-pointer  h-full w-5/6 mx-2`}
       onClick={() => {
         setCompanySymbol(symbol);
       }}
@@ -100,13 +100,16 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
           </p>
         </div>
       </div>
+      {/* make it so that the size of the chart does not impact the size of the div dispalcin everything
+      
+      solution: fixed div sizes and chart does not o outside or has enough room to be*/}
       <div
-        className={`flex justify-between bg-gray-500 bg-opacity-20 backdrop-blur-lg ${
+        className={`bg-blue-500 flex justify-between bg-grasy-500 bg-opacity-20 backdrop-blur-lg ${
           lightMode ? "bg-opacity-100" : null
-        }  rounded-br-lg rounded-bl-lg w-full h-[100px] p-2`}
+        }  rounded-br-lg rounded-bl-lg w-full h-[80px] sm:h-[70px] xl:h-[100px] p-2`}
       >
         <img
-          className="rounded-full w-2/6 "
+          className=" borsder-2 rounded-full"
           src={data.profile ? data.profile.logo : null}
           alt="logo"
         />

@@ -30,7 +30,7 @@ function Dashboard() {
           <div
             className={` ${
               lightMode ? "bg-white shadow-dark" : "shadow-light"
-            } rounded-lg h-[58%] xl:h-4/6`}
+            } rounded-lg lg:h-[60%] xl:h-4/6`}
           >
             <Chart
               apiKey={apiKey}
@@ -39,7 +39,7 @@ function Dashboard() {
               height={"85%"}
             />
           </div>
-          <div className="flex flex-col justify-between h-2/6 mt-8">
+          <div className="flex flex-col justify-end lg:h-[36%] xl:h-[31%] mt-6">
             <SimilarCompanies
               companySymbol={companySymbol}
               setCompanySymbol={setCompanySymbol}

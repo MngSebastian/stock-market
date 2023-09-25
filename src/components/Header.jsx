@@ -43,13 +43,13 @@ function Header({ data, setCompanySymbol }) {
     >
       <div className="flex flex-col justify-center w-3/6 pl-6">
         <p
-          className={`text-4xl text-slate-200 ${
+          className={` lg:text-2xl xl:text-4xl ${
             lightMode ? "text-black" : null
           } pb-4`}
         >
           {data ? data.name : null}
         </p>
-        <div className="flex justify-evenly shadow-CardLight items-center border border-slate-400  w-[350px] bg-transparent h-[34px] rounded-lg">
+        <div className="flex justify-evenly hover:shadow-CardLight items-center border border-slate-400  w-[350px] bg-transparent h-[34px] rounded-lg">
           <input
             type="text"
             name="Company symbol"
