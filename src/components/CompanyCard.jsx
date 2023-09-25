@@ -80,9 +80,10 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
                 : "text-red"
             } `}
           >
-            $
             {data.quote && data.quote.d !== null
-              ? data.quote.d.toFixed(2)
+              ? data.quote.d >= 0
+                ? `$${data.quote.d.toFixed(2)}`
+                : `-$${Math.abs(data.quote.d).toFixed(2)}`
               : null}
           </p>
           <p

@@ -37,9 +37,10 @@ function CompanyHeader({ companySymbol }) {
             {/* add plus sign if number is positive */}
             {/* toFixed(2)  will probably raise an error when quote.dp is 0 */}
             <span>
-              $
               {data.quote && data.quote.d !== null
-                ? data.quote.d.toFixed(2)
+                ? data.quote.d >= 0
+                  ? `$${data.quote.d.toFixed(2)}`
+                  : `-$${Math.abs(data.quote.d).toFixed(2)}`
                 : null}
             </span>
             {data.quote && data.quote.dp !== null
