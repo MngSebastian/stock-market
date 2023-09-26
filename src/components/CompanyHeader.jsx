@@ -18,13 +18,21 @@ function CompanyHeader({ companySymbol }) {
   return (
     <div className="flex flex-col w-6/6 h-full">
       <div className="w-full">
-        <p className=" flex md:text-sm  lg:text-md xl:text-lg">
+        <p
+          className={` ${
+            lightMode ? "text-black" : null
+          } flex md:text-sm  lg:text-md xl:text-lg`}
+        >
           {companySymbol.toUpperCase()}
         </p>
       </div>
       <div className="flex w-full  h-full">
         <div className="flex flex-col  items-center justify-center w-full">
-          <p className=" md:text-lg lg:text-xl xl:text-2xl font-light pb-2">
+          <p
+            className={` ${
+              lightMode ? "text-black" : null
+            } md:text-lg lg:text-xl xl:text-2xl font-light pb-2`}
+          >
             ${data.quote ? data.quote.c.toFixed(2) : null}
           </p>
           <p
