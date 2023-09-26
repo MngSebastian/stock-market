@@ -60,7 +60,7 @@ function MiniChart({ companySymbol }) {
             type="monotone"
             dataKey="value"
             stroke="#312e81"
-            fillOpacity={1}
+            fillOpacity={0.8}
             strokeWidth={0.5}
             fill="rgb(170,22,190)"
           />

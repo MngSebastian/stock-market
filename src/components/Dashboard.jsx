@@ -15,6 +15,7 @@ function Dashboard() {
     fetchCompanyData(companySymbol, setData);
   }, [companySymbol]);
   return (
+    // making auto gives me my overflow auto but chart
     <div className="flex flex-col h-auto lg:h-full w-full">
       <Header
         setCompanySymbol={setCompanySymbol}
@@ -26,11 +27,11 @@ function Dashboard() {
           lightMode ? "bg-offWhite" : "bg-primary"
         } w-full pt-1 pb-4 h-full`}
       >
-        <div className="w-5/6  h-full mr-6 ml-6">
+        <div className="w-5/6  h-auto mr-6 ml-6">
           <div
             className={` ${
               lightMode ? "bg-white shadow-dark" : "shadow-light"
-            } rounded-lg md:h-[45%] lg:h-[60%] xl:h-4/6 mt-8 mb-10 lg:mb-0 lg:mt-0`}
+            } rounded-lg h-[40vh] lg:h-[60%] xl:h-4/6 mt-8 mb-10 lg:mb-0 lg:mt-0`}
           >
             <Chart
               apiKey={apiKey}
