@@ -39,7 +39,7 @@ function Dashboard() {
               height={"85%"}
             />
           </div>
-          <div className="flex flex-col justify-center lg:justify-end border-2 lg:h-[36%] xl:h-[31%] mt-6">
+          <div className="flex flex-col justify-center lg:justify-end  lg:h-[36%] xl:h-[31%] mt-6">
             <SimilarCompanies
               companySymbol={companySymbol}
               setCompanySymbol={setCompanySymbol}

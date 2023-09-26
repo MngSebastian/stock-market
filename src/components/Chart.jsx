@@ -60,7 +60,7 @@ function Chart({ apiKey, companySymbol }) {
   }, [companySymbol, filter]);
 
   return (
-    <div className="h-auto">
+    <div className="h-auto lg:h-full">
       <ul className="flex justify-end">
         {Object.keys(chartConfig).map((item) => {
           return (
