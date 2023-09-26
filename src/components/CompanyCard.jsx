@@ -78,7 +78,7 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
               (data.quote ? data.quote.d : null) >= 0
                 ? "text-green"
                 : "text-red"
-            } `}
+            } mr-2`}
           >
             {data.quote && data.quote.d !== null
               ? data.quote.d >= 0
@@ -93,7 +93,6 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
                 : "text-red"
             } `}
           >
-            {/* {data.quote ? data.quote.dp : null}% */}
             {data.quote && data.quote.dp !== null
               ? data.quote.dp.toFixed(2)
               : null}

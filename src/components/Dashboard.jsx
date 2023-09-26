@@ -30,7 +30,7 @@ function Dashboard() {
           <div
             className={` ${
               lightMode ? "bg-white shadow-dark" : "shadow-light"
-            } rounded-lg md:h-[45%] lg:h-[60%] xl:h-4/6 mt-12 lg:mt-0`}
+            } rounded-lg md:h-[45%] lg:h-[60%] xl:h-4/6 mt-8 mb-10 lg:mb-0 lg:mt-0`}
           >
             <Chart
               apiKey={apiKey}
@@ -50,11 +50,11 @@ function Dashboard() {
           <div
             className={` ${
               lightMode ? "bg-offWhite shadow-dark" : "shadow-light"
-            }  rounded-lg  h-2/6 lg:h-1/6 p-2 mb-6 lg:mb-0`}
+            }  rounded-lg  h-2/6 md:h-[35%] lg:h-[20%] p-2 mb-8 lg:mb-6`}
           >
             <CompanyHeader companySymbol={companySymbol} />
           </div>
-          <div className="shadow-custom rounded-lg h-[80%]">
+          <div className="shadow-custom rounded-lg h-[65%] lg:h-[80%]">
             <CompanyProfile profile={data.profile} />
           </div>
         </div>

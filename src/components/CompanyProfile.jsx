@@ -8,15 +8,15 @@ function CompanyProfile({ profile }) {
     return (number / 1000).toFixed(2);
   };
 
-  const styles = `flex  justify-between  border-b ${
+  const styles = `flex  justify-between border-b ${
     lightMode ? "border-black" : null
-  } mb-10`;
+  } mb-4 lg:mb-8`;
 
   return (
     <div
       className={`flex font-light flex-col ${
         lightMode ? "bg-white text-black shadow-dark" : "shadow-light"
-      } h-full rounded-lg p-4 lg:p-6`}
+      } h-full rounded-lg px-10 py-4 lg:py-2 lg:px-6`}
     >
       <div className={styles}>
         <h4 className="text-md lg:text-lg tracking-widest">Name:</h4>

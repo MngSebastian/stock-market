@@ -18,14 +18,14 @@ function CompanyHeader({ companySymbol }) {
   return (
     <div className="flex flex-col w-6/6 h-full">
       <div className="w-full">
-        <p className=" flex md:text-sm text-stone-600 md:text-lime-600 lg:text-md xl:text-lg">
+        <p className=" flex md:text-sm  lg:text-md xl:text-lg">
           {companySymbol.toUpperCase()}
         </p>
       </div>
       <div className="flex w-full  h-full">
         <div className="flex flex-col  items-center justify-center w-full">
           <p className=" md:text-lg lg:text-xl xl:text-2xl font-light pb-2">
-            ${data.quote ? data.quote.c : null}
+            ${data.quote ? data.quote.c.toFixed(2) : null}
           </p>
           <p
             className={`flex justify-around md:text-lg lg:text-md xl:text-lg w-4/6 ${
@@ -36,7 +36,7 @@ function CompanyHeader({ companySymbol }) {
           >
             {/* add plus sign if number is positive */}
             {/* toFixed(2)  will probably raise an error when quote.dp is 0 */}
-            <span>
+            <span className="mr-2">
               {data.quote && data.quote.d !== null
                 ? data.quote.d >= 0
                   ? `$${data.quote.d.toFixed(2)}`
@@ -74,36 +74,3 @@ function CompanyHeader({ companySymbol }) {
 }
 
 export default CompanyHeader;
-
-{
-  /* <div
-        className={`   ${
-          lightMode ? "text-black" : null
-        } flex flex-col items-center w-3/6`}
-      > */
-}
-// <div className="flex  w-full">
-//   <p className=" flex text-md">{companySymbol.toUpperCase()}</p>
-// </div>
-// <p className="text-sm lg:text-2xl font-light pb-2">
-//   ${data.quote ? data.quote.c : null}
-// </p>
-// <p
-//   className={`flex justify-around text-sm md:text-lg w-4/6 ${
-//     (data.quote ? data.quote.d : null) >= 0 ? "text-green" : "text-red"
-//   } `}
-// >
-//   {/* add plus sign if number is positive */}
-//   {/* toFixed(2)  will probably raise an error when quote.dp is 0 */}
-//   <span>
-//     $
-//     {data.quote && data.quote.d !== null
-//       ? data.quote.d.toFixed(2)
-//       : null}
-//   </span>
-//   {data.quote && data.quote.dp !== null
-//     ? data.quote.dp.toFixed(2)
-//     : null}
-//   %
-// </p>
-// </div>
