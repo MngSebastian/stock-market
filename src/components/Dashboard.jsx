@@ -30,7 +30,7 @@ function Dashboard() {
           <div
             className={` ${
               lightMode ? "bg-white shadow-dark" : "shadow-light"
-            } rounded-lg h-[30%] md:h-[45%] lg:h-[60%] xl:h-4/6 mt-8 mb-10 lg:mb-0 lg:mt-0`}
+            } rounded-lg md:h-[45%] lg:h-[60%] xl:h-4/6 mt-8 mb-10 lg:mb-0 lg:mt-0`}
           >
             <Chart
               apiKey={apiKey}

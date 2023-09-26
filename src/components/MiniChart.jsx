@@ -62,7 +62,7 @@ function MiniChart({ companySymbol }) {
             stroke="#312e81"
             fillOpacity={1}
             strokeWidth={0.5}
-            fill="url(#chartColor)"
+            fill="rgb(170,22,190)"
           />
           {/* <XAxis dataKey={"date"} /> */}
           <YAxis domain={["dataMin", "dataMax"]} hide={true} />
