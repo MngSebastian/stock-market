@@ -15,7 +15,7 @@ function Dashboard() {
     fetchCompanyData(companySymbol, setData);
   }, [companySymbol]);
   return (
-    <div className="flex flex-col h-full w-full">
+    <div className="flex flex-col h-auto lg:h-full w-full">
       <Header
         setCompanySymbol={setCompanySymbol}
         data={data.profile ? data.profile : null}
@@ -39,7 +39,7 @@ function Dashboard() {
               height={"85%"}
             />
           </div>
-          <div className="flex flex-col justify-end lg:h-[36%] xl:h-[31%] mt-6">
+          <div className="flex flex-col justify-center lg:justify-end border-2 lg:h-[36%] xl:h-[31%] mt-6">
             <SimilarCompanies
               companySymbol={companySymbol}
               setCompanySymbol={setCompanySymbol}

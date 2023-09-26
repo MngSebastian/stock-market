@@ -44,7 +44,7 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
           ? "bg-white border-slate-300 hover:shadow-CardDark"
           : "hover:shadow-CardLight border-slate-800"
       }   
-         duration-300 transition-shadow rounded-lg cursor-pointer  h-full w-5/6 mx-2`}
+         duration-300 transition-shadow rounded-lg cursor-pointer  h-full  lg:w-5/6 mx-2`}
       onClick={() => {
         setCompanySymbol(symbol);
       }}

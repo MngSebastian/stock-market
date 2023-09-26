@@ -9,7 +9,7 @@ function SimilarCompanies({ companySymbol, setCompanySymbol }) {
   }, [companySymbol]);
 
   return (
-    <div className="flex w-full h-6/6">
+    <div className="flex justify-center flex-wrap lg:flex-nowrap  w-full h-6/6">
       {peers.map((symbol) => {
         return (
           <CompanyCard
