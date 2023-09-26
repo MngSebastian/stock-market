@@ -37,7 +37,7 @@ function Header({ data, setCompanySymbol }) {
   console.log("header runns");
   return (
     <div
-      className={`flex ${
+      className={`flex  ${
         lightMode ? "bg-offWhite" : "bg-primary"
       } w-full h-[175px]`}
     >
@@ -101,7 +101,7 @@ function Header({ data, setCompanySymbol }) {
         </div>
       </div>
       <div className="flex justify-end items-center w-3/6 pr-6 ">
-        <div className=" flex items-center justify-center w-2/6 h-4/6">
+        <div className="flex  items-center justify-center w-2/6 h-4/6 pt-10 md:pt-0">
           <button
             onClick={() => {
               setLightMode(!lightMode);
@@ -123,7 +123,7 @@ function Header({ data, setCompanySymbol }) {
             )}
           </button>
         </div>
-        <div className="flex justify-end w-[80px] h-[80px] ">
+        <div className="flex justify-end w-[60px] h-[60px] md:w-[80px] md:h-[80px] mt-10 md:mt-0">
           <img src={data ? data.logo : null} alt="Company logo" />
         </div>
       </div>

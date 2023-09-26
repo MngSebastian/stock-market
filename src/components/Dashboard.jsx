@@ -26,7 +26,7 @@ function Dashboard() {
           lightMode ? "bg-offWhite" : "bg-primary"
         } w-full pt-1 pb-4 h-full`}
       >
-        <div className="w-4/6 h-full mr-6 ml-6">
+        <div className="w-5/6  h-full mr-6 ml-6">
           <div
             className={` ${
               lightMode ? "bg-white shadow-dark" : "shadow-light"
@@ -46,11 +46,11 @@ function Dashboard() {
             />
           </div>
         </div>
-        <div className=" flex flex-col justify-between w-4/6 lg:w-2/6 h-full lg:mr-6">
+        <div className=" flex flex-col justify-between w-5/6 lg:w-2/6 h-full lg:mr-6">
           <div
             className={` ${
               lightMode ? "bg-offWhite shadow-dark" : "shadow-light"
-            }  rounded-lg  h-2/6 md:h-[35%] lg:h-[20%] p-2 mb-8 lg:mb-6`}
+            }  rounded-lg md:w-full h-2/6 md:h-[35%] lg:h-[20%] p-2 mb-8 lg:mb-6`}
           >
             <CompanyHeader companySymbol={companySymbol} />
           </div>
