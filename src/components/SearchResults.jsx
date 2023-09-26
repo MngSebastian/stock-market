@@ -9,7 +9,7 @@ function SearchResults({
 }) {
   return (
     <ul
-      className={`absolute top-32 left-4 bg-primary border-2 custom-scrollbar border-slate-500 w-[400px] z-40 rounded-md h-64 overflow-y-scroll`}
+      className={`absolute top-32 left-4 bg-primary border-2 custom-scrollbar border-slate-500 w-[300px] md:w-[400px] z-40 rounded-md h-64 overflow-y-scroll`}
     >
       {results.map((item) => {
         return (

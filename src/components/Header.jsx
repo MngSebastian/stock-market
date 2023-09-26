@@ -49,12 +49,14 @@ function Header({ data, setCompanySymbol }) {
         >
           {data ? data.name : null}
         </p>
-        <div className="flex justify-evenly hover:shadow-CardLight items-center border border-slate-400  w-[350px] bg-transparent h-[34px] rounded-lg">
+        <div className="flex justify-evenly hover:shadow-CardLight items-center border border-slate-400  w-[200px] md:w-[350px] bg-transparent h-[34px] rounded-lg">
           <input
             type="text"
             name="Company symbol"
             placeholder="Enter company symbol"
-            className="w-full h-[34px] outline-none text-white bg-transparent rounded-lg pl-2 text-sm"
+            className={`w-full h-[34px] outline-none ${
+              lightMode ? "text-black" : "text-white"
+            } bg-transparent rounded-lg pl-2 text-sm`}
             value={inputValue}
             onChange={(event) => setInputValue(event.target.value)}
             onKeyUp={(event) => {
@@ -72,7 +74,10 @@ function Header({ data, setCompanySymbol }) {
               }}
               className="bg-transparent hover:bg-slate-700 rounded-full mr-2"
             >
-              <IoMdClose size={18} />
+              <IoMdClose
+                className={`${lightMode ? "text-black" : null}`}
+                size={18}
+              />
             </button>
           )}
           <button
