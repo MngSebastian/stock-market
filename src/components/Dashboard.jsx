@@ -27,7 +27,8 @@ function Dashboard() {
           lightMode ? "bg-offWhite" : "bg-primary"
         } w-full pt-1 pb-4 h-full`}
       >
-        <div className="w-5/6  h-auto mr-6 ml-6">
+        {/* h-auto if there are issues on mobile */}
+        <div className="w-5/6  h-full mr-6 ml-6">
           <div
             className={` ${
               lightMode ? "bg-white shadow-dark" : "shadow-light"

@@ -23,8 +23,10 @@ function CompanyProfile({ profile }) {
         <p>{profile ? profile.name : null}</p>
       </div>
       <div className={styles}>
-        <h4 className="text-md lg:text-lg tracking-widest">Exchange:</h4>
-        <p>{profile ? profile.exchange : null}</p>
+        <h4 className="text-md lg:text-lg tracking-widest mt-4 md:mt-0">
+          Exchange:
+        </h4>
+        <p className="text-right">{profile ? profile.exchange : null}</p>
       </div>
       <div className={styles}>
         <h4 className="text-md lg:text-lg tracking-widest">Country:</h4>
@@ -46,6 +48,7 @@ function CompanyProfile({ profile }) {
           {profile
             ? convertMillionToBillion(profile.marketCapitalization)
             : null}
+          B
         </p>
       </div>
     </div>
