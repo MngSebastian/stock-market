@@ -45,6 +45,7 @@ function Header({ data, setCompanySymbol }) {
           <input
             type="text"
             name="Company symbol"
+            maxLength={6}
             placeholder="Enter company symbol"
             className={`w-full h-[34px] outline-none ${
               lightMode ? "text-black" : "text-white"
@@ -120,7 +121,8 @@ function Header({ data, setCompanySymbol }) {
           </button>
         </div>
         <div className="flex justify-end w-[60px] h-[60px] md:w-[80px] md:h-[80px] mt-10 md:mt-0">
-          <img src={data ? data.logo : null} alt="Company logo" />
+          {data.logo ? <img src={data.logo} alt="Company logo" /> : null}
+          {/* <img src={data ? data.logo : null} alt="Company logo" /> */}
         </div>
       </div>
     </div>
