@@ -29,14 +29,14 @@ function CompanyHeader({ companySymbol }) {
       <div className="flex w-full  h-full">
         <div className="flex flex-col  items-center justify-center w-full">
           <p
-            className={` ${
+            className={`${
               lightMode ? "text-black" : null
             } md:text-lg lg:text-xl xl:text-2xl font-light pb-2`}
           >
             ${data.quote ? data.quote.c.toFixed(2) : null}
           </p>
           <p
-            className={`flex justify-around md:text-lg lg:text-md xl:text-lg w-4/6 ${
+            className={`flex justify-around  md:text-lg lg:text-md xl:text-lg w-5/6 ${
               (data.quote ? data.quote.d : null) >= 0
                 ? "text-green"
                 : "text-red"
