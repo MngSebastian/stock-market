@@ -16,7 +16,7 @@ function CompanyProfile({ profile }) {
     <div
       className={`flex font-light flex-col ${
         lightMode ? "bg-white text-black shadow-dark" : "shadow-light"
-      } h-full rounded-lg px-10 py-4 lg:py-2 lg:px-6`}
+      } h-full rounded-lg px-4 py-4 lg:py-2 lg:px-6`}
     >
       <div className={styles}>
         <h4 className="text-md lg:text-lg tracking-widest">Name:</h4>
