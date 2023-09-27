@@ -33,7 +33,7 @@ function Dashboard() {
           <p className={` text-2xl ${lightMode ? "text-black" : null}`}>
             Invalid Ticker
           </p>
-          <p className={` text-lg ${lightMode ? "text-black" : null}`}>
+          <p className={`px-4 text-lg ${lightMode ? "text-black" : null}`}>
             Try a valid ticker such as AAPL, TSLA, MSFT, NFLX, AMZN.
           </p>
         </div>

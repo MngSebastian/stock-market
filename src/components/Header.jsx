@@ -35,7 +35,7 @@ function Header({ data, setCompanySymbol }) {
     >
       <div className="flex flex-col justify-center w-3/6 pl-6">
         <p
-          className={` lg:text-2xl xl:text-4xl ${
+          className={` h-[40px] md:h-[60px] lg:text-2xl xl:text-4xl ${
             lightMode ? "text-black" : null
           } pb-4`}
         >
