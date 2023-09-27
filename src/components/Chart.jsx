@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   convertUnixTimestampToDate,
   convertDateToUnixTimestamp,
@@ -15,10 +15,12 @@ import {
 import { chartConfig } from "../constants/chart-config";
 import ChartFilter from "./ChartFilter";
 import { fetchHistoricalData } from "../utils/api.js";
+import ThemeContext from "../context/ThemeContext";
 
 function Chart({ apiKey, companySymbol }) {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState("1W");
+  const { lightMode, setLightMode } = useContext(ThemeContext);
 
   const formatData = (data) => {
     return data.c.map((item, index) => {
@@ -81,12 +83,12 @@ function Chart({ apiKey, companySymbol }) {
           <defs>
             <linearGradient id="chartColor" x1="0" y1="0" x2="0" y2="1">
               <stop
-                offset="15%"
+                offset={`${lightMode ? "55%" : "25%"}`}
                 stopColor="rgb(222,22,210)"
                 stopOpacity={0.8}
               />
               <stop
-                offset="95%"
+                offset="98%"
                 stopColor="rgb(190,12,150)"
                 stopOpacity={0.1}
               />
