@@ -72,10 +72,14 @@ function Header({ data, setCompanySymbol }) {
                 setInputValue("");
                 setBestMatches([]);
               }}
-              className="bg-transparent hover:bg-slate-700 rounded-full mr-2"
+              className="bg-transparent  mr-2"
             >
               <IoMdClose
-                className={`${lightMode ? "text-black" : null}`}
+                className={` ${
+                  lightMode
+                    ? "text-black hover:bg-slate-400 rounded-full"
+                    : "hover:bg-slate-700 rounded-full"
+                }`}
                 size={18}
               />
             </button>
