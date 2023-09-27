@@ -55,6 +55,20 @@ function MiniChart({ companySymbol }) {
     <div className="flex justify-center items-center w-4/6">
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={data}>
+          <defs>
+            <linearGradient id="chartColor" x1="0" y1="0" x2="0" y2="1">
+              <stop
+                offset="55%"
+                stopColor="rgb(222,22,210)"
+                stopOpacity={0.8}
+              />
+              <stop
+                offset="98%"
+                stopColor="rgb(190,12,150)"
+                stopOpacity={0.1}
+              />
+            </linearGradient>
+          </defs>
           <Area
             className="cursor-pointer"
             type="monotone"
@@ -62,7 +76,7 @@ function MiniChart({ companySymbol }) {
             stroke="#312e81"
             fillOpacity={0.8}
             strokeWidth={0.5}
-            fill="rgb(170,22,190)"
+            fill="url(#chartColor)"
           />
           {/* <XAxis dataKey={"date"} /> */}
           <YAxis domain={["dataMin", "dataMax"]} hide={true} />
