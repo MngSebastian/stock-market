@@ -17,6 +17,30 @@ function Dashboard() {
     fetchCompanyData(companySymbol, setData);
   }, [companySymbol]);
 
+  if (data.profile && data.profile.name === undefined) {
+    // Data indicates an invalid ticker, display "Invalid ticker"
+    return (
+      <div className="flex flex-col h-full lg:h-full w-full">
+        <Header
+          setCompanySymbol={setCompanySymbol}
+          data={data.profile ? data.profile : null}
+        />
+        <div
+          className={`flex flex-col text-center ${
+            lightMode ? "bg-offWhite" : "bg-primary"
+          } w-full h-full pt-20`}
+        >
+          <p className={` text-2xl ${lightMode ? "text-black" : null}`}>
+            Invalid Ticker
+          </p>
+          <p className={` text-lg ${lightMode ? "text-black" : null}`}>
+            Try a valid ticker such as AAPL, TSLA, MSFT, NFLX, AMZN.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col h-auto lg:h-full w-full">
       <Header
