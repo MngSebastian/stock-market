@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import ThemeContext from "../context/ThemeContext";
 
-// add: when no stock ticker matches the input
-// open the dropdown with "No stocks found wit this ticker."
 function SearchResults({
   results,
   setCompanySymbol,

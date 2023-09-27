@@ -17,7 +17,7 @@ import ChartFilter from "./ChartFilter";
 import { fetchHistoricalData } from "../utils/api.js";
 import ThemeContext from "../context/ThemeContext";
 
-function Chart({ apiKey, companySymbol }) {
+function Chart({ companySymbol }) {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState("1W");
   const { lightMode, setLightMode } = useContext(ThemeContext);

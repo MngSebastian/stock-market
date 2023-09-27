@@ -4,12 +4,10 @@ import {
   convertDateToUnixTimestamp,
   createDate,
 } from "../helpers/date-helper";
-
 import { AreaChart, Area, YAxis, ResponsiveContainer } from "recharts";
 import { chartConfig } from "../constants/chart-config";
 import { fetchHistoricalData } from "../utils/api.js";
-// take the chart component functions and put them in helper.js
-//and request them in chart and minichart component to make them cleaner
+
 function MiniChart({ companySymbol }) {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState("1W");
@@ -22,6 +20,7 @@ function MiniChart({ companySymbol }) {
       };
     });
   };
+
   useEffect(() => {
     const getDateRange = () => {
       const { days, weeks, months, years } = chartConfig[filter];
@@ -51,6 +50,7 @@ function MiniChart({ companySymbol }) {
 
     updateChartData();
   }, [companySymbol, filter]);
+
   return (
     <div className="flex justify-center items-center w-4/6">
       <ResponsiveContainer width="100%" height="100%">

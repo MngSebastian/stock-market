@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { IoMdSearch, IoMdClose } from "react-icons/io";
 import { MoonIcon } from "@heroicons/react/24/outline";
-
 import { searchSymbol } from "../utils/api";
 import SearchResults from "./SearchResults";
 import ThemeContext from "../context/ThemeContext";
@@ -23,18 +22,11 @@ function Header({ data, setCompanySymbol }) {
       console.log(error);
     }
   };
-  // renders live once on input change and once on update
-  // bug found: if user continously spams input(which renders and requests) i get error 429 to many req
-  //possible fix allow max 4 inputs, no ticker is longer than 4
-  //create a var thats an array, add every input, if the length is 4:
-  //either let user add more inputs but stop the updatefunction or
-  // simply dont add more than 4 inputs
-  //todo: only display the logo if the api gives me one, otherwise null to avoid the  missing logo image and alt text
 
   useEffect(() => {
     updateBestMatches();
   }, [inputValue]);
-  console.log("header runns");
+
   return (
     <div
       className={`flex  ${

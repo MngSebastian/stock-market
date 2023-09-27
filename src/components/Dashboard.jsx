@@ -2,20 +2,22 @@ import React, { useState, useEffect, useContext } from "react";
 import Header from "./Header";
 import CompanyHeader from "./CompanyHeader";
 import CompanyProfile from "./CompanyProfile";
+import SimilarCompanies from "./SimilarCompanies";
 import Chart from "./Chart";
 import { fetchCompanyData, apiKey } from "../utils/api";
-import SimilarCompanies from "./SimilarCompanies";
 import ThemeContext from "../context/ThemeContext";
-// todo: handle what happenes when the api does not rreturn data for a specific ticker
+
+// todo: handle what happenes when the api does not return data for a specific ticker
 function Dashboard() {
   const [data, setData] = useState({});
   const [companySymbol, setCompanySymbol] = useState("TSLA");
   const { lightMode, setLightMode } = useContext(ThemeContext);
+
   useEffect(() => {
     fetchCompanyData(companySymbol, setData);
   }, [companySymbol]);
+
   return (
-    // making auto gives me my overflow auto but chart
     <div className="flex flex-col h-auto lg:h-full w-full">
       <Header
         setCompanySymbol={setCompanySymbol}
@@ -27,7 +29,6 @@ function Dashboard() {
           lightMode ? "bg-offWhite" : "bg-primary"
         } w-full pt-1 pb-4 h-full`}
       >
-        {/* h-auto if there are issues on mobile */}
         <div className="w-5/6  h-full mr-6 ml-6">
           <div
             className={` ${
@@ -35,7 +36,6 @@ function Dashboard() {
             } rounded-lg h-[40vh] lg:h-[60%] xl:h-4/6 mt-8 mb-10 lg:mb-0 lg:mt-0`}
           >
             <Chart
-              apiKey={apiKey}
               companySymbol={companySymbol}
               width={"100%"}
               height={"85%"}
