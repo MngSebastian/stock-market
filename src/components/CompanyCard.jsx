@@ -37,6 +37,10 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
     fetchProfileAndQuoteData(symbol);
   }, [peers]);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div
       className={`flex flex-col justify-between border ${
@@ -47,6 +51,7 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
          duration-300 transition-shadow rounded-lg cursor-pointer  h-full w-[200px] lg:w-5/6 mx-2 my-4 lg:my-0`}
       onClick={() => {
         setCompanySymbol(symbol);
+        scrollToTop();
       }}
     >
       <div
