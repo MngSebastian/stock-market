@@ -12,6 +12,7 @@ function Dashboard() {
   const [data, setData] = useState({});
   const [companySymbol, setCompanySymbol] = useState("TSLA");
   const { lightMode, setLightMode } = useContext(ThemeContext);
+  const [on, setOn] = useState(false);
 
   useEffect(() => {
     fetchCompanyData(companySymbol, setData);
@@ -30,11 +31,11 @@ function Dashboard() {
             lightMode ? "bg-offWhite" : "bg-primary"
           } w-full h-full pt-20`}
         >
-          <p className={` text-2xl ${lightMode ? "text-black" : null}`}>
-            Invalid Ticker
+          <p className={` text-2xl ${lightMode ? "text-black" : null} mb-4`}>
+            Invalid Symbol
           </p>
           <p className={`px-4 text-lg ${lightMode ? "text-black" : null}`}>
-            Try a valid ticker such as AAPL, TSLA, MSFT, NFLX, AMZN.
+            Please enter a valid symbol such as AAPL, TSLA, MSFT, NFLX, AMZN.
           </p>
         </div>
       </div>
@@ -65,12 +66,13 @@ function Dashboard() {
               height={"85%"}
             />
           </div>
-          <div className="flex flex-col justify-center lg:justify-end  lg:h-[36%] xl:h-[31%] mt-6">
+          {/* Feature commented out due to API Rate LIMIT */}
+          {/* <div className="flex flex-col justify-center lg:justify-end  lg:h-[36%] xl:h-[31%] mt-6">
             <SimilarCompanies
               companySymbol={companySymbol}
               setCompanySymbol={setCompanySymbol}
             />
-          </div>
+          </div> */}
         </div>
         <div className=" flex flex-col justify-between w-5/6 lg:w-2/6 h-full lg:mr-6">
           <div

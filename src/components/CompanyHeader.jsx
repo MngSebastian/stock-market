@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { fetchQuoteData } from "../utils/api";
+
 import ThemeContext from "../context/ThemeContext";
 
 function CompanyHeader({ companySymbol }) {

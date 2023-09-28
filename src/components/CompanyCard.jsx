@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-
 import axios from "axios";
 import MiniChart from "./MiniChart";
 import ThemeContext from "../context/ThemeContext";
@@ -33,6 +32,7 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
       console.error("Error fetching data:", error);
     }
   };
+
   useEffect(() => {
     fetchProfileAndQuoteData(symbol);
   }, [peers]);
@@ -105,9 +105,7 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
           </p>
         </div>
       </div>
-      {/* make it so that the size of the chart does not impact the size of the div dispalcin everything
-      
-      solution: fixed div sizes and chart does not o outside or has enough room to be*/}
+
       <div
         className={`bg-blue-500 flex justify-between bg-grasy-500 bg-opacity-20 backdrop-blur-lg ${
           lightMode ? "bg-opacity-100" : null
