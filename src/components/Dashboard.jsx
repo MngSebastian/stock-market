@@ -7,7 +7,6 @@ import Chart from "./Chart";
 import { fetchCompanyData, apiKey } from "../utils/api";
 import ThemeContext from "../context/ThemeContext";
 
-// todo: handle what happenes when the api does not return data for a specific ticker
 function Dashboard() {
   const [data, setData] = useState({});
   const [companySymbol, setCompanySymbol] = useState("TSLA");

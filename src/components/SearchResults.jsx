@@ -11,7 +11,7 @@ function SearchResults({
 
   return (
     <ul
-      className={`absolute top-32 left-4 ${
+      className={`absolute top-36 left-4 ${
         lightMode ? "bg-white text-black" : "bg-primary "
       } border-2 custom-scrollbar border-slate-500 w-[300px] md:w-[400px] z-40 rounded-md h-64 overflow-y-scroll`}
     >

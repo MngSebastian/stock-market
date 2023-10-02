@@ -15,7 +15,6 @@ export const fetchCompanyData = async (companySymbol, setData) => {
     );
 
     const companyData = {
-      // profile: response.data,
       profile: {
         name: response.data.name,
         ticker: response.data.ticker,

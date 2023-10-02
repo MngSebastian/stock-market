@@ -37,7 +37,7 @@ function Header({ data, setCompanySymbol }) {
         <p
           className={`h-[40px] md:h-[60px] lg:text-2xl xl:text-4xl ${
             lightMode ? "text-black" : null
-          } mb-4`}
+          } mb-2`}
         >
           {data ? data.name : null}
         </p>

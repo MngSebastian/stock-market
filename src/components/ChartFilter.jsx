@@ -15,5 +15,4 @@ function ChartFilter({ text, active, onClick }) {
     </button>
   );
 }
-// rgb(222, 22, 210);
 export default ChartFilter;
