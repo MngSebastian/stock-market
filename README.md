@@ -12,12 +12,12 @@ run npm start or go to https://stock-market-tau.vercel.app/
 
 
 ## Features
-Day and Night Toggle
+Day and Night Toggle <br>
 ![Day and Night Toggle](https://github.com/MngSebastian/stock-market/assets/44436863/692b7187-50e5-4765-9212-c73f3ce163fc)
 
 
 Real-time data about companies.
-Chart with historical Data. (Daily, weekly, monthly, yearly)
+Chart with historical Data. (Daily, weekly, monthly, yearly) <br>
 ![ezgif-5-368e0fa2b9](https://github.com/MngSebastian/stock-market/assets/44436863/8a0a1265-b55d-491c-9afa-bc9d6f1f9a79)
 
 
@@ -25,11 +25,11 @@ Input AutoComplete (sort of, more about this in Challenges and Learnings)
 
 
 ## Fully Responsive
-Tablet
+Tablet <br>
 ![ezgif-5-dc601fe643](https://github.com/MngSebastian/stock-market/assets/44436863/12072af9-e455-485d-8d17-1eeee290344b)
 
 
-Phone:
+Phone <br>
 ![ezgif-5-0443bd0cea](https://github.com/MngSebastian/stock-market/assets/44436863/e0e86175-4796-462b-8a78-dae23259990e)
 
 
