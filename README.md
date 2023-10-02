@@ -1,70 +1,41 @@
 # Stock Market App
 
-This project was done with React, Tailwind
 
-## Available Scripts
+## Introduction
+This Project was done with React and Tailwind and its purpose was so that I get more comfortable working with API’s.
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Usage
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+run npm start or go to https://stock-market-tau.vercel.app/
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
+Day and Night Toggle
+![ezgif-5-f974bb9962](https://github.com/MngSebastian/stock-market/assets/44436863/692b7187-50e5-4765-9212-c73f3ce163fc)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Real-time data about companies.
+Chart with historical Data. (Daily, weekly, monthly, yearly)
+![ezgif-5-368e0fa2b9](https://github.com/MngSebastian/stock-market/assets/44436863/8a0a1265-b55d-491c-9afa-bc9d6f1f9a79)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Input AutoComplete (sort of, more about this in Challenges and Learnings)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Fully Responsive
+Tablet
+![ezgif-5-dc601fe643](https://github.com/MngSebastian/stock-market/assets/44436863/12072af9-e455-485d-8d17-1eeee290344b)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Phone:
+![ezgif-5-0443bd0cea](https://github.com/MngSebastian/stock-market/assets/44436863/e0e86175-4796-462b-8a78-dae23259990e)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Challenges, learnings and features that had to be sacrificed :)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Input Autocomplete:
+	I have implemented a real-time autocomplete feature that queries the symbolLookup endpoint with each character input in the search field. However, this frequent querying has the potential to exceed the API's rate limit threshold, which it did many times.
+	To reduce the frequency of autocomplete queries, I've chosen to initiate a query only after the third character is entered. This decision is based on the observation that most company tickers consist of four characters, making it impractical to generate an exhaustive list of suggestions from just the initial two characters.
