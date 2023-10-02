@@ -20,7 +20,7 @@ function SearchResults({
           <li
             key={item.symbol}
             className={`cursor-pointer ${
-              lightMode ? "shadow-light" : "shadow-dark"
+              lightMode ? "shadow-light" : "bg-slate-800 shadow-dark"
             } p-4 m-2  hover:bg-pink-500 flex items-center justify-between rounded-md transition duration-300`}
             onClick={() => {
               setCompanySymbol(item.symbol);
@@ -28,8 +28,8 @@ function SearchResults({
               setBestMatches([]);
             }}
           >
-            <span>{item.symbol}</span>
-            <span>{item.description}</span>
+            <span className="text-sm pr-3">{item.symbol}</span>
+            <span className="text-right text-sm">{item.description}</span>
           </li>
         );
       })}
