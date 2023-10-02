@@ -37,5 +37,9 @@ Phone <br>
 
 
 Input Autocomplete:
-	I have implemented a real-time autocomplete feature that queries the symbolLookup endpoint with each character input in the search field. However, this frequent querying has the potential to exceed the API's rate limit threshold, which it did many times.
-	To reduce the frequency of autocomplete queries, I've chosen to initiate a query only after the third character is entered. This decision is based on the observation that most company tickers consist of four characters, making it impractical to generate an exhaustive list of suggestions from just the initial two characters.
+	I have implemented a real-time autocomplete feature that queries the symbolLookup endpoint with each character input in the search field. However, this frequent querying has the potential to exceed the API's rate limit threshold, which it did 	many times.
+	To reduce the frequency of autocomplete queries, I've chosen to initiate a query only after the third character is entered. This decision is based on the observation that most company tickers consist of four characters, making it impractical 	to generate an exhaustive list of suggestions from just the initial two characters.
+
+ Features that I had to sacrifice entirely due to API Rate Limit.
+	For each company (eg. Tesla) I made a component that displays company Cards from the same industry (GM, FORD, Rivian ) each with its own data and miniChart.
+	This feature more than doubled the amount of request the app is sending, it worked for a while but if you query a few companies fast you will run into a 429 HIT RATE LIMIT REACHED.
