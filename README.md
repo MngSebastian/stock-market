@@ -12,7 +12,7 @@ run npm start or go to https://stock-market-tau.vercel.app/
 
 
 ## Features
-Day and Night Toggle
+#Day and Night Toggle
 ![ezgif-5-f974bb9962](https://github.com/MngSebastian/stock-market/assets/44436863/692b7187-50e5-4765-9212-c73f3ce163fc)
 
 
