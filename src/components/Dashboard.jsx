@@ -12,7 +12,6 @@ function Dashboard() {
   const [data, setData] = useState({});
   const [companySymbol, setCompanySymbol] = useState("TSLA");
   const { lightMode, setLightMode } = useContext(ThemeContext);
-  const [on, setOn] = useState(false);
 
   useEffect(() => {
     fetchCompanyData(companySymbol, setData);

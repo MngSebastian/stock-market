@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import MiniChart from "./MiniChart";
 import ThemeContext from "../context/ThemeContext";
+import { getCache, setCache } from "../utils/cacheUtils"; // Import your cache utility functions here
+
 // to fix: card is not clickable when user hovers over miniChart
 // to fix: some companies siamply dont return full data and their card look empy
 // if comapany.price or change or percent is not available, remove from array of peers
@@ -13,8 +15,18 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
   const [data, setData] = useState({});
   const { lightMode, setLightMode } = useContext(ThemeContext);
 
+  const CACHE_KEY = `companyCardData_${symbol}`;
+
   const fetchProfileAndQuoteData = async (symbol) => {
     try {
+      const cachedData = getCache(CACHE_KEY);
+      if (cachedData) {
+        setData(cachedData);
+        console.log("Data retrieved from companycard cache:", cachedData);
+
+        return;
+      }
+
       const [profileResponse, quoteResponse] = await Promise.all([
         axios.get(
           `https://finnhub.io/api/v1/stock/profile2?symbol=${symbol}&token=${process.env.REACT_APP_FINNHUB_API_KEY}`
@@ -28,6 +40,7 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
         quote: quoteResponse.data,
       };
       setData(companyData);
+      setCache(CACHE_KEY, companyData, 0);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
