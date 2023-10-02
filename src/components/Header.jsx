@@ -12,7 +12,7 @@ function Header({ data, setCompanySymbol }) {
 
   const updateBestMatches = async () => {
     try {
-      if (inputValue) {
+      if (inputValue.length >= 3) {
         const searchResults = await searchSymbol(inputValue);
         const result = searchResults.result;
         setBestMatches(result);
@@ -25,7 +25,7 @@ function Header({ data, setCompanySymbol }) {
 
   useEffect(() => {
     updateBestMatches();
-  }, []);
+  }, [inputValue]);
 
   return (
     <div
@@ -54,7 +54,9 @@ function Header({ data, setCompanySymbol }) {
             onChange={(event) => setInputValue(event.target.value)}
             onKeyUp={(event) => {
               if (event.key === "Enter" && inputValue.length > 0) {
-                updateBestMatches();
+                setCompanySymbol(inputValue.toUpperCase());
+                setInputValue("");
+                // updateBestMatches();
               }
             }}
           />
@@ -62,6 +64,7 @@ function Header({ data, setCompanySymbol }) {
             <button
               onClick={() => {
                 setInputValue("");
+                setBestMatches([]);
               }}
               className="bg-transparent  mr-2"
             >
@@ -78,7 +81,11 @@ function Header({ data, setCompanySymbol }) {
           <button
             type="submit"
             className="bg-blue-500 px-2 h-[25px] rounded-lg mr-1"
-            onClick={updateBestMatches}
+            onClick={() => {
+              setCompanySymbol(inputValue);
+              setInputValue("");
+              // updateBestMatches
+            }}
           >
             <IoMdSearch size={16} />
           </button>

@@ -57,7 +57,7 @@ function Dashboard() {
           <div
             className={` ${
               lightMode ? "bg-white shadow-dark" : "shadow-light"
-            } rounded-lg h-[40vh] lg:h-[60%] xl:h-4/6 mt-8 mb-10 lg:mb-0 lg:mt-0`}
+            } rounded-lg h-[40vh] lg:h-[100%] xl:h-6/6 mt-8 mb-10 lg:mb-0 lg:mt-0`}
           >
             <Chart
               companySymbol={companySymbol}

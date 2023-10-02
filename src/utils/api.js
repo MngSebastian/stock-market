@@ -81,6 +81,7 @@ export const searchSymbol = async (query) => {
 
   return await response.json();
 };
+
 export const fetchPeersData = async (companySymbol, setData) => {
   try {
     const peersResponse = await axios.get(
