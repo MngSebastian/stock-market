@@ -33,11 +33,11 @@ function Header({ data, setCompanySymbol }) {
         lightMode ? "bg-offWhite" : "bg-primary"
       } w-full h-[175px]`}
     >
-      <div className="flex flex-col justify-center w-3/6 pl-6">
+      <div className="flex flex-col justify-center w-4/6 pl-6">
         <p
-          className={` h-[40px] md:h-[60px] lg:text-2xl xl:text-4xl ${
+          className={`h-[40px] md:h-[60px] lg:text-2xl xl:text-4xl ${
             lightMode ? "text-black" : null
-          } pb-4`}
+          } mb-4`}
         >
           {data ? data.name : null}
         </p>

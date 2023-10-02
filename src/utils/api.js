@@ -1,6 +1,4 @@
 import axios from "axios";
-import axiosInstance from "./axiosInstance";
-import { setCache, getCache } from "./cacheUtils";
 
 export const apiKey = process.env.REACT_APP_FINNHUB_API_KEY;
 
@@ -12,21 +10,7 @@ export const apiKey = process.env.REACT_APP_FINNHUB_API_KEY;
 
 export const fetchCompanyData = async (companySymbol, setData) => {
   try {
-    const CACHE_KEY = `companyProfileData_${companySymbol}`;
-    // const cachedData = getCache(CACHE_KEY);
-    // if (cachedData) {
-    //   setData(cachedData);
-    //   console.log("Data retrieved from cache:", cachedData);
-    //   return;
-    // }
-
-    // const [profileResponse] = await Promise.all([
-    //   axios.get(
-    //     `https://finnhub.io/api/v1/stock/profile2?symbol=${companySymbol}&token=${apiKey}`
-    //   ),
-    // ]);
-
-    const response = await axiosInstance.get(
+    const response = await axios.get(
       `https://finnhub.io/api/v1/stock/profile2?symbol=${companySymbol}&token=${apiKey}`
     );
 
@@ -46,9 +30,6 @@ export const fetchCompanyData = async (companySymbol, setData) => {
         logo: response.data.logo,
       },
     };
-
-    // Cache the data with an expiration time (e.g., 1 hour)
-    // setCache(CACHE_KEY, companyData, 120);
 
     setData(companyData);
   } catch (error) {

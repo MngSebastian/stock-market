@@ -2,31 +2,13 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import MiniChart from "./MiniChart";
 import ThemeContext from "../context/ThemeContext";
-import { getCache, setCache } from "../utils/cacheUtils"; // Import your cache utility functions here
 
-// to fix: card is not clickable when user hovers over miniChart
-// to fix: some companies siamply dont return full data and their card look empy
-// if comapany.price or change or percent is not available, remove from array of peers
-// trace how data is used in the big chart, get that same data in this componenet, pass it to minichart
-// make sure data gets converted to correct format, and plug in
-//todo: if a company does not provide data, and the user clicks on the card, the data of previous company stays
-// todo: responsive design for company cards
 function CompanyCard({ symbol, setCompanySymbol, peers }) {
   const [data, setData] = useState({});
   const { lightMode, setLightMode } = useContext(ThemeContext);
 
-  const CACHE_KEY = `companyCardData_${symbol}`;
-
   const fetchProfileAndQuoteData = async (symbol) => {
     try {
-      const cachedData = getCache(CACHE_KEY);
-      if (cachedData) {
-        setData(cachedData);
-        console.log("Data retrieved from companycard cache:", cachedData);
-
-        return;
-      }
-
       const [profileResponse, quoteResponse] = await Promise.all([
         axios.get(
           `https://finnhub.io/api/v1/stock/profile2?symbol=${symbol}&token=${process.env.REACT_APP_FINNHUB_API_KEY}`
@@ -40,7 +22,6 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
         quote: quoteResponse.data,
       };
       setData(companyData);
-      setCache(CACHE_KEY, companyData, 0);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -84,7 +65,6 @@ function CompanyCard({ symbol, setCompanySymbol, peers }) {
             lightMode ? "text-black" : "text-white"
           }`}
         >
-          {/* toFixed raises an error when value returned by api is 0.toFixed(2) */}
           $
           {data.quote && data.quote.c !== null && data.quote.c > 0
             ? data.quote.c.toFixed(2)
