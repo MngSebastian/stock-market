@@ -65,12 +65,12 @@ function Dashboard() {
             />
           </div>
           {/* Feature commented out due to API Rate LIMIT */}
-          {/* <div className="flex flex-col justify-center lg:justify-end  lg:h-[36%] xl:h-[31%] mt-6">
-            <SimilarCompanies
+          <div className="flex flex-col justify-center lg:justify-end  lg:h-[36%] xl:h-[31%] mt-6">
+            {/* <SimilarCompanies
               companySymbol={companySymbol}
               setCompanySymbol={setCompanySymbol}
-            />
-          </div> */}
+            /> */}
+          </div>
         </div>
         <div className=" flex flex-col justify-between w-5/6 lg:w-2/6 h-full lg:mr-6">
           <div
