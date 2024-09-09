@@ -8,7 +8,7 @@ This Project was done with React and Tailwind and its purpose was so that I get 
 
 ## Usage
 
-run npm start or go to https://stock-market-tau.vercel.app/ (DEPRECATED, Invalid APi Key)
+run npm start or go to https://stock-market-tau.vercel.app/ (The App is DEPRECATED due to Invalid APi Key) Scroll Down in the README file to see it.
 
 
 ## Features
