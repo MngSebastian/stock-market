@@ -9,6 +9,7 @@ This Project was done with React and Tailwind and its purpose was so that I get 
 ## Usage
 
 run npm start or go to https://stock-market-tau.vercel.app/ (The App is DEPRECATED due to Invalid APi Key) Scroll Down in the README file to see it.
+IMPORTANT Even if this is run locally with a good valid free tier API key from finhubb the Chart will still not work because the candle endpoint has been moved to a Premium tier as can be seen in the documentation: https://finnhub.io/docs/api/stock-candles
 
 
 ## Features
